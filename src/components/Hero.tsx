@@ -81,7 +81,7 @@ export function Hero() {
                 className="mb-8"
               >
                 <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 italic" style={{ fontWeight: 400 }}>
-                  (Based in Buenos Aires)
+                  (Based in Rosario, Argentina)
                 </span>
               </motion.div>
 
@@ -105,10 +105,10 @@ export function Hero() {
                 className="mb-12"
               >
                 <h2 className="font-['Archivo',sans-serif] text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] text-[#28292D] dark:text-white/90 mb-6" style={{ fontWeight: 600 }}>
-                  Crafting impactful brands and websites that drive growth and success.
+                  Crafting impactful SaaS and Websites that drive growth and success.
                 </h2>
                 <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7] max-w-[550px]" style={{ fontWeight: 400 }}>
-                  Visión integral para guiar un proceso de transformación entendiendo los objetivos de tu empresa, la tecnología necesaria y el rumbo a seguir.
+                  Comprehensive vision guiding your transformation — aligning your company’s goals, technology needs, and growth direction through strategic design and development.
                 </p>
               </motion.div>
 

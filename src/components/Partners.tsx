@@ -66,7 +66,7 @@ export function Partners() {
           className="pt-20 border-t border-[#28292D]/10 dark:border-white/10"
         >
           <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-12 block italic" style={{ fontWeight: 400 }}>
-            (Our Partner)
+            (Partnered With)
           </span>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">

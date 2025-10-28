@@ -134,7 +134,7 @@ export function Testimonial() {
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevTestimonial}
-              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
               aria-label="Previous testimonial"
             >
               <span className="text-white text-[24px] group-hover:-translate-x-1 transition-transform">←</span>
@@ -144,7 +144,7 @@ export function Testimonial() {
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextTestimonial}
-              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
               aria-label="Next testimonial"
             >
               <span className="text-white text-[24px] group-hover:translate-x-1 transition-transform">→</span>
@@ -156,7 +156,7 @@ export function Testimonial() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
                     index === currentIndex ? "bg-[#D52169] w-8" : "bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}

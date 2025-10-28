@@ -7,11 +7,11 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Servicios", href: "#servicios" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Proceso", href: "#proceso" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Start", href: "#inicio" },
+    { label: "Services", href: "#servicios" },
+    { label: "Work", href: "#proyectos" },
+    { label: "Process", href: "#proceso" },
+    { label: "Contact", href: "#contacto" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export function Navigation() {
           href="#inicio"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
-          className="flex items-center"
+          className="flex items-center cursor-pointer"
         >
           <LogoCompact className="h-12 w-auto" />
         </motion.a>
@@ -42,7 +42,7 @@ export function Navigation() {
             >
               <a
                 href={item.href}
-                className="font-['Archivo',sans-serif] text-[14px] tracking-[0.05em] uppercase text-[#28292D] hover:text-[#D52169] transition-colors duration-300 relative group"
+                className="font-['Archivo',sans-serif] text-[14px] tracking-[0.05em] uppercase text-[#28292D] hover:text-[#D52169] transition-colors duration-300 relative group cursor-pointer"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#D52169] group-hover:w-full transition-all duration-300" />
@@ -54,7 +54,7 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 hover:bg-[#F5F5F5] rounded transition-colors"
+          className="md:hidden p-2 hover:bg-[#F5F5F5] rounded transition-colors cursor-pointer"
           aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={mobileMenuOpen}
         >
@@ -75,7 +75,7 @@ export function Navigation() {
                   <a
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-4 font-['Archivo',sans-serif] text-[14px] tracking-[0.05em] uppercase text-[#28292D] hover:text-[#D52169] transition-colors"
+                    className="block py-4 font-['Archivo',sans-serif] text-[14px] tracking-[0.05em] uppercase text-[#28292D] hover:text-[#D52169] transition-colors cursor-pointer"
                   >
                     {item.label}
                   </a>

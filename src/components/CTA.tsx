@@ -3,7 +3,7 @@ import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="py-32 bg-white dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-500">
+    <section id="contacto" className="py-32 bg-white dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-500">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         {[...Array(20)].map((_, i) => (
@@ -57,7 +57,7 @@ export function CTA() {
               <motion.a
                 href="mailto:hello@kierstudio.com"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-4 group cursor-pointer"
               >
                 <div className="w-12 h-12 bg-[#D52169] group-hover:bg-[#28292D] rounded-full flex items-center justify-center transition-colors">
                   <Mail className="text-white" size={20} />
@@ -75,7 +75,7 @@ export function CTA() {
               <motion.a
                 href="tel:+5491123456789"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-4 group cursor-pointer"
               >
                 <div className="w-12 h-12 bg-[#D52169] group-hover:bg-[#28292D] rounded-full flex items-center justify-center transition-colors">
                   <MessageCircle className="text-white" size={20} />
@@ -96,7 +96,7 @@ export function CTA() {
               <motion.button
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group"
+                className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group cursor-pointer"
                 style={{ fontWeight: 700 }}
               >
                 Schedule a Call
@@ -106,7 +106,7 @@ export function CTA() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-10 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300"
+                className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-10 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer"
                 style={{ fontWeight: 700 }}
               >
                 View Portfolio
@@ -203,7 +203,7 @@ export function CTA() {
                 type="submit"
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group"
+                className="w-full bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group cursor-pointer"
                 style={{ fontWeight: 700 }}
               >
                 Send Message

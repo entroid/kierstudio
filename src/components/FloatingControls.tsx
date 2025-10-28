@@ -55,7 +55,7 @@ export function FloatingControls() {
           onClick={toggleDarkMode}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group"
+          className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group cursor-pointer"
           aria-label={darkMode ? "Activar modo claro" : "Activar modo oscuro"}
         >
           <AnimatePresence mode="wait">
@@ -95,7 +95,7 @@ export function FloatingControls() {
           onClick={() => setAccessibilityOpen(!accessibilityOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300"
+          className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
           aria-label="Abrir menú de accesibilidad"
           aria-expanded={accessibilityOpen}
         >
@@ -126,7 +126,7 @@ export function FloatingControls() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={decreaseFontSize}
-                    className="w-10 h-10 bg-[#F5F5F5] dark:bg-[#28292D] rounded-lg flex items-center justify-center hover:bg-[#D52169] hover:text-white transition-colors"
+                    className="w-10 h-10 bg-[#F5F5F5] dark:bg-[#28292D] rounded-lg flex items-center justify-center hover:bg-[#D52169] hover:text-white transition-colors cursor-pointer"
                     aria-label="Reducir tamaño de fuente"
                   >
                     <Minus size={16} />
@@ -138,7 +138,7 @@ export function FloatingControls() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={increaseFontSize}
-                    className="w-10 h-10 bg-[#F5F5F5] dark:bg-[#28292D] rounded-lg flex items-center justify-center hover:bg-[#D52169] hover:text-white transition-colors"
+                    className="w-10 h-10 bg-[#F5F5F5] dark:bg-[#28292D] rounded-lg flex items-center justify-center hover:bg-[#D52169] hover:text-white transition-colors cursor-pointer"
                     aria-label="Aumentar tamaño de fuente"
                   >
                     <Plus size={16} />
@@ -147,7 +147,7 @@ export function FloatingControls() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={resetFontSize}
-                    className="px-3 py-2 bg-[#F5F5F5] dark:bg-[#28292D] rounded-lg font-['Archivo',sans-serif] text-[11px] hover:bg-[#D52169] hover:text-white transition-colors" style={{ fontWeight: 600 }}
+                    className="px-3 py-2 bg[#F5F5F5] dark:bg-[#28292D] rounded-lg font-['Archivo',sans-serif] text-[11px] hover:bg-[#D52169] hover:text-white transition-colors cursor-pointer" style={{ fontWeight: 600 }}
                   >
                     Reset
                   </motion.button>
@@ -159,7 +159,7 @@ export function FloatingControls() {
                 <motion.button
                   whileHover={{ x: 5 }}
                   onClick={toggleHighContrast}
-                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
+                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
                     accessibility.highContrast
                       ? "bg-[#D52169] text-white"
                       : "bg-[#F5F5F5] dark:bg-[#28292D] text-[#28292D] dark:text-white hover:bg-[#D52169]/10"
@@ -185,7 +185,7 @@ export function FloatingControls() {
                 <motion.button
                   whileHover={{ x: 5 }}
                   onClick={toggleReducedMotion}
-                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
+                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
                     accessibility.reducedMotion
                       ? "bg-[#D52169] text-white"
                       : "bg-[#F5F5F5] dark:bg-[#28292D] text-[#28292D] dark:text-white hover:bg-[#D52169]/10"
@@ -211,7 +211,7 @@ export function FloatingControls() {
                 <motion.button
                   whileHover={{ x: 5 }}
                   onClick={toggleScreenReader}
-                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
+                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
                     screenReaderEnabled
                       ? "bg-[#D52169] text-white"
                       : "bg-[#F5F5F5] dark:bg-[#28292D] text-[#28292D] dark:text-white hover:bg-[#D52169]/10"

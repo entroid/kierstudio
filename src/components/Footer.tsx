@@ -84,7 +84,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300"
+                  className="w-12 h-12 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -113,7 +113,7 @@ export function Footer() {
                     >
                       <a
                         href="#"
-                        className="font-['Archivo',sans-serif] text-[14px] text-white/60 hover:text-[#D52169] transition-colors"
+                        className="font-['Archivo',sans-serif] text-[14px] text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
                         style={{ fontWeight: 400 }}
                       >
                         {link}
@@ -156,7 +156,7 @@ export function Footer() {
               <motion.button
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#D52169] text-white px-8 py-4 font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase hover:bg-white hover:text-[#28292D] transition-all duration-300"
+                className="bg-[#D52169] text-white px-8 py-4 font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase hover:bg-white hover:text-[#28292D] transition-all duration-300 cursor-pointer"
                 style={{ fontWeight: 700 }}
               >
                 Subscribe →
@@ -175,7 +175,7 @@ export function Footer() {
             <motion.a
               href="#"
               whileHover={{ y: -2 }}
-              className="font-['Archivo',sans-serif] text-[12px] text-white/40 hover:text-[#D52169] transition-colors"
+              className="font-['Archivo',sans-serif] text-[12px] text-white/40 hover:text-[#D52169] transition-colors cursor-pointer"
               style={{ fontWeight: 400 }}
             >
               Privacy Policy
@@ -207,7 +207,7 @@ export function Footer() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-32 left-8 w-14 h-14 bg-[#D52169] hover:bg-white hover:text-[#28292D] rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl z-40"
+          className="fixed bottom-32 left-8 w-14 h-14 bg-[#D52169] hover:bg-white hover:text-[#28292D] rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl z-40 cursor-pointer"
           aria-label="Scroll to top"
         >
           <span className="text-white hover:text-[#28292D] text-[24px] transition-colors">↑</span>
