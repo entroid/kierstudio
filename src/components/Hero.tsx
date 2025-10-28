@@ -118,13 +118,14 @@ export function Hero() {
                 transition={{ delay: 0.9 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <motion.button
+                <motion.a
+                  href="#contacto"
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D]" style={{ fontWeight: 700 }}
+                  className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] cursor-pointer" style={{ fontWeight: 700 }}
                 >
                   Let's Talk →
-                </motion.button>
+                </motion.a>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
