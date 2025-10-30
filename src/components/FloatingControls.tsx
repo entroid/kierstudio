@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Moon, Sun, Accessibility, Plus, Minus, Eye, EyeOff, Maximize, Volume2, VolumeX } from "lucide-react";
+import { Moon, Sun, Accessibility, Plus, Minus, Eye, EyeOff, Maximize, Volume2, VolumeX, ArrowUp } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "./ThemeContext";
 
@@ -44,77 +44,56 @@ export function FloatingControls() {
 
   return (
     <>
-      {/* Dark Mode Toggle */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1, duration: 0.3 }}
-        className="fixed bottom-8 right-8 z-50"
-      >
-        <motion.button
-          onClick={toggleDarkMode}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group cursor-pointer"
-          aria-label={darkMode ? "Activar modo claro" : "Activar modo oscuro"}
+      {/* Fixed container for stacked floating buttons */}
+      <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-5">
+        {/* Scroll to top */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.3 }}
         >
-          <AnimatePresence mode="wait">
-            {darkMode ? (
-              <motion.div
-                key="sun"
-                initial={{ rotate: -180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 180, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Sun className="text-white" size={24} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="moon"
-                initial={{ rotate: 180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -180, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Moon className="text-white" size={24} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.button>
-      </motion.div>
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group cursor-pointer"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="text-white" size={24} />
+          </motion.button>
+        </motion.div>
 
-      {/* Accessibility Menu */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.3 }}
-        className="fixed bottom-28 right-8 z-50"
-      >
-        <motion.button
-          onClick={() => setAccessibilityOpen(!accessibilityOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
-          aria-label="Abrir menú de accesibilidad"
-          aria-expanded={accessibilityOpen}
+        {/* Accessibility Menu */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.3 }}
+          className="relative"
         >
-          <Accessibility className="text-white" size={24} />
-        </motion.button>
+          <motion.button
+            onClick={() => setAccessibilityOpen(!accessibilityOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
+            aria-label="Abrir menú de accesibilidad"
+            aria-expanded={accessibilityOpen}
+          >
+            <Accessibility className="text-white" size={24} />
+          </motion.button>
 
-        {/* Accessibility Panel */}
-        <AnimatePresence>
-          {accessibilityOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: 100, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 100, scale: 0.8 }}
-              transition={{ duration: 0.3 }}
-              className="absolute bottom-20 right-0 w-[320px] bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-2xl border border-[#28292D]/10 dark:border-white/10 p-6"
-            >
-              <h3 className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white mb-6" style={{ fontWeight: 700 }}>
-                Opciones de Accesibilidad
-              </h3>
+          {/* Accessibility Panel */}
+          <AnimatePresence>
+            {accessibilityOpen && (
+              <motion.div
+                initial={{ opacity: 0, x: 100, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 100, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-20 right-0 w-[320px] bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-2xl border border-[#28292D]/10 dark:border-white/10 p-6"
+              >
+                <h3 className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white mb-6" style={{ fontWeight: 700 }}>
+                  Opciones de Accesibilidad
+                </h3>
 
               {/* Font Size */}
               <div className="mb-6 pb-6 border-b border-[#28292D]/10 dark:border-white/10">
@@ -234,7 +213,47 @@ export function FloatingControls() {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+        </motion.div>
+
+        {/* Dark Mode Toggle */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.3 }}
+        >
+          <motion.button
+            onClick={toggleDarkMode}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group cursor-pointer"
+            aria-label={darkMode ? "Activar modo claro" : "Activar modo oscuro"}
+          >
+            <AnimatePresence mode="wait">
+              {darkMode ? (
+                <motion.div
+                  key="sun"
+                  initial={{ rotate: -180, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 180, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Sun className="text-white" size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="moon"
+                  initial={{ rotate: 180, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -180, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Moon className="text-white" size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
+      </div>
     </>
   );
 }

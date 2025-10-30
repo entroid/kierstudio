@@ -1,29 +1,36 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 export function Process() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const { scrollYProgress: titleProgress } = useScroll({
+    target: titleRef,
+    offset: ["start 100%", "start 70%"],
+  });
+  const titleOpacity = useTransform(titleProgress, [0, 1], [0, 1]);
   const steps = [
     {
       number: "01",
       title: "DISCOVERY",
-      description: "Entendemos tus objetivos, audiencia y desafíos únicos a través de investigación profunda y análisis estratégico.",
+      description: "We understand your goals, target users, and unique business challenges through deep research and strategic analysis.",
       services: ["Research", "Strategy", "Planning"],
     },
     {
       number: "02",
       title: "DESIGN",
-      description: "Creamos soluciones visuales impactantes que comunican tu mensaje y conectan emocionalmente con tu audiencia.",
-      services: ["Wireframes", "Mockups", "Prototypes"],
+      description: "We ideate and craft the experience through impactful visual solutions that communicate your message and emotionally connect with your audience.",
+      services: ["Information Architecture", "Wireframes", "Mockups", "Prototypes"],
     },
     {
       number: "03",
       title: "DEVELOP",
-      description: "Transformamos diseños en experiencias digitales funcionales utilizando las últimas tecnologías y mejores prácticas.",
+      description: "We transform designs into functional digital experiences using the latest technologies and best practices.",
       services: ["Frontend", "Backend", "Testing"],
     },
     {
       number: "04",
       title: "DELIVER",
-      description: "Lanzamos tu proyecto al mundo y proporcionamos soporte continuo para asegurar el éxito a largo plazo.",
+      description: "We launch your project to the world and provide ongoing support and refinement to ensure long-term success.",
       services: ["Launch", "Support", "Optimization"],
     },
   ];
@@ -42,9 +49,17 @@ export function Process() {
             (How We Work)
           </span>
 
-          <h2 className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8" style={{ fontWeight: 900 }}>
+          <motion.h2
+            ref={titleRef}
+            initial={{ y: 30 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8"
+            style={{ fontWeight: 900, opacity: titleOpacity }}
+          >
             PROCESS
-          </h2>
+          </motion.h2>
 
           <p className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]" style={{ fontWeight: 600 }}>
             Our proven methodology ensures exceptional results every time.
@@ -128,14 +143,15 @@ export function Process() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <motion.button
+          <motion.a
+            href="#contacto"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#D52169] text-white px-12 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D]"
+            className="bg-[#D52169] text-white px-12 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] cursor-pointer"
             style={{ fontWeight: 700 }}
           >
-            Start Your Project →
-          </motion.button>
+            Let´s Start Your Project →
+          </motion.a>
         </motion.div>
       </div>
     </section>

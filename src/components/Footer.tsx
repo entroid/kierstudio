@@ -12,10 +12,14 @@ export function Footer() {
   ];
 
   const footerLinks = {
-    Services: ["Brand Strategy", "Website Design", "UX/UI Design", "Development", "E-commerce"],
-    Company: ["About Us", "Our Process", "Case Studies", "Careers", "Blog"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR Compliance"],
-  };
+    Company: [
+      { label: "About Us", href: "#about" },
+      { label: "Services", href: "#servicios" },
+      { label: "Our Work", href: "#proyectos" },
+      { label: "Our Process", href: "#proceso" },
+      { label: "Contact Us", href: "#contacto" },
+    ],
+  } as const;
 
   return (
     <footer className="bg-[#28292D] dark:bg-black text-white pt-32 pb-8 transition-colors duration-500">
@@ -38,20 +42,25 @@ export function Footer() {
             </motion.h2>
 
             <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-white/70 leading-[1.7] mb-8 max-w-[500px]" style={{ fontWeight: 400 }}>
-              Crafting impactful brands and websites that drive growth and success. Based in Buenos Aires, working globally.
+              Comprehensive strategy crafting your digital product. 
+              <br />
+              Based in Argentina, working globally.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-4 mb-8">
-              <motion.div
+              <motion.a
+                href="https://www.google.com/maps/search/?api=1&query=Rosario%2C%20Argentina"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ x: 5 }}
                 className="flex items-center gap-3 text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
               >
                 <MapPin size={18} />
                 <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
-                  Buenos Aires, Argentina
+                  Rosario, Argentina
                 </span>
-              </motion.div>
+              </motion.a>
 
               <motion.div
                 whileHover={{ x: 5 }}
@@ -59,35 +68,36 @@ export function Footer() {
               >
                 <Mail size={18} />
                 <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
-                  hello@kierstudio.com
+                  info@kierstudio.com
                 </span>
               </motion.div>
 
-              <motion.div
+              <motion.a
+                href="https://wa.me/5493417211814?text=Hi%20Kier%20Studio.%20I%20am%20contacting%20through%20your%20website."
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ x: 5 }}
                 className="flex items-center gap-3 text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
               >
                 <Phone size={18} />
                 <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
-                  +54 9 11 2345 6789
+                  +54 9 341 7211814
                 </span>
-              </motion.div>
+              </motion.a>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-3">
+            {/* Social Links (temporarily hidden) */}
+            <div className="hidden flex gap-3">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer"
-                  aria-label={social.label}
+                  whileHover={{ y: -2 }}
+                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
                 >
-                  <social.icon size={18} />
+                  <social.icon className="text-white" size={18} />
                 </motion.a>
               ))}
             </div>
@@ -98,40 +108,40 @@ export function Footer() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12"
+            className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12 justify-items-start lg:justify-items-end lg:justify-self-end lg:w-auto"
           >
             {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-              <div key={categoryIndex}>
-                <h3 className="font-['Archivo',sans-serif] text-[13px] tracking-[0.15em] uppercase text-white mb-6" style={{ fontWeight: 700 }}>
+              <div key={categoryIndex} className="justify-self-start lg:justify-self-end lg:w-auto">
+                <h3 className="font-['Archivo',sans-serif] text-[13px] tracking-[0.15em] uppercase text-white mb-6 lg:text-right" style={{ fontWeight: 700 }}>
                   {category}
                 </h3>
-                <ul className="space-y-3">
-                  {links.map((link, linkIndex) => (
-                    <motion.li
-                      key={linkIndex}
-                      whileHover={{ x: 5 }}
-                    >
-                      <a
-                        href="#"
-                        className="font-['Archivo',sans-serif] text-[14px] text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
-                        style={{ fontWeight: 400 }}
-                      >
-                        {link}
-                      </a>
-                    </motion.li>
-                  ))}
+                <ul className="space-y-3 lg:text-right">
+                  {links.map((link: any, linkIndex: number) => {
+                    const item = typeof link === 'string' ? { label: link, href: '#' } : link;
+                    return (
+                      <motion.li key={linkIndex} whileHover={{ x: 5 }}>
+                        <a
+                          href={item.href}
+                          className="font-['Archivo',sans-serif] text-[14px] text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
+                          style={{ fontWeight: 400 }}
+                        >
+                          {item.label}
+                        </a>
+                      </motion.li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Newsletter */}
+        {/* Newsletter (temporarily hidden) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="py-16 border-b border-white/10"
+          className="hidden py-16 border-b border-white/10"
         >
           <div className="grid md:grid-cols-2 gap-8 items-end">
             <div>
@@ -173,7 +183,7 @@ export function Footer() {
 
           <div className="flex gap-6">
             <motion.a
-              href="#"
+              href="#/privacy"
               whileHover={{ y: -2 }}
               className="font-['Archivo',sans-serif] text-[12px] text-white/40 hover:text-[#D52169] transition-colors cursor-pointer"
               style={{ fontWeight: 400 }}
@@ -181,7 +191,7 @@ export function Footer() {
               Privacy Policy
             </motion.a>
             <motion.a
-              href="#"
+              href="#/terms"
               whileHover={{ y: -2 }}
               className="font-['Archivo',sans-serif] text-[12px] text-white/40 hover:text-[#D52169] transition-colors"
               style={{ fontWeight: 400 }}
@@ -189,7 +199,7 @@ export function Footer() {
               Terms of Service
             </motion.a>
             <motion.a
-              href="#"
+              href="#/cookies"
               whileHover={{ y: -2 }}
               className="font-['Archivo',sans-serif] text-[12px] text-white/40 hover:text-[#D52169] transition-colors"
               style={{ fontWeight: 400 }}
@@ -199,19 +209,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Scroll to top */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.1, y: -5 }}
-          whileTap={{ scale: 0.9 }}
-          className="fixed bottom-32 left-8 w-14 h-14 bg-[#D52169] hover:bg-white hover:text-[#28292D] rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl z-40 cursor-pointer"
-          aria-label="Scroll to top"
-        >
-          <span className="text-white hover:text-[#28292D] text-[24px] transition-colors">↑</span>
-        </motion.button>
+        
       </div>
     </footer>
   );

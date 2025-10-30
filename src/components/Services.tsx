@@ -4,29 +4,52 @@ import { useRef } from "react";
 
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.8]);
+  // Drive title opacity based on its own position: from 80% to 50% of viewport -> 0 -> 1
+  const { scrollYProgress: titleProgress } = useScroll({
+    target: titleRef,
+    // Reach 100% opacity earlier (when the title's top hits ~70% of viewport)
+    offset: ["start 100%", "start 70%"],
+  });
+  const titleOpacity = useTransform(titleProgress, [0, 1], [0, 1]);
 
   const services = [
     {
-      title: "BRAND STRATEGY",
-      subtitle: "Crafting impactful brands and websites that drive growth and success.",
-      image: "https://images.unsplash.com/photo-1633533447057-56ccf997f4fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwZGVzaWdufGVufDF8fHx8MTc2MTA0MjQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      services: ["Brand Discovery", "Brand Positioning", "Visual Identity Design", "Brand Guidelines"],
-      tag: "Branding Service",
-      bgColor: "bg-white dark:bg-[#1a1a1a]",
+      title: "PRODUCT DESIGN",
+      subtitle: "End-to-end digital products: Strategy, comprehensive design and development.",
+      image: "https://images.unsplash.com/photo-1551281044-8b87c2e2752b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      services: ["Strategy","UX/UI", "Development"],
+      tag: "Strategy + UX/UI + Development",
+      bgColor: "bg-[#F5F5F5] dark:bg-[#1a1a1a]",
     },
     {
-      title: "WEBSITE DESIGN",
-      subtitle: "Custom & responsive websites that engage users and drive conversions.",
+      title: "WEBSITES",
+      subtitle: "Your online presentation card. Custom & responsive websites that engage users and drive conversions.",
       image: "https://images.unsplash.com/photo-1677469684112-5dfb3aa4d3df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9kZXJufGVufDF8fHx8MTc2MTA2NTkyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      services: ["Website Design", "Framer", "Website Support", "Webflow"],
+      services: ["Website Design & Development", "Website Support"],
       tag: "Website Services",
+      bgColor: "bg-[#28292D] dark:bg-black",
+    },
+    {
+      title: "ECOMMERCE",
+      subtitle: "Strategic design, setup, launch and support for your online store.",
+      image: "https://images.unsplash.com/photo-1633533447057-56ccf997f4fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwZGVzaWdufGVufDF8fHx8MTc2MTA0MjQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      services: ["Ecommerce Setup & Launch", "Shopify", "Tiendanube", "WooCommerce"],
+      tag: "Ecommerce Services",
+      bgColor: "bg-[#F5F5F5] dark:bg-[#1a1a1a]",
+    },
+    {
+      title: "PRODUCT DEVELOPMENT",
+      subtitle: "Build scalable content systems with headless CMS and seamless integrations.",
+      image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      services: [
+        "Headless CMS (Sanity, Strapi)",
+        "Content Modeling",
+        "Custom Dashboards",
+        "Integrations & APIs"
+      ],
+      tag: "Development",
       bgColor: "bg-[#28292D] dark:bg-black",
     },
   ];
@@ -39,40 +62,27 @@ export function Services() {
     >
       {/* Animated background elements */}
       <motion.div
-        style={{ opacity }}
+        style={{ opacity: titleOpacity }}
         className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#D52169]/5 rounded-full blur-3xl"
       />
 
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <motion.div
-          style={{ opacity, scale }}
-          className="mb-20"
-        >
+        <motion.div className="mb-20">
           <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-6 block italic" style={{ fontWeight: 400 }}>
             (What we do)
           </span>
 
           <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            ref={titleRef}
+            initial={{ y: 30 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8 overflow-hidden"
-            style={{ fontWeight: 900 }}
+            transition={{ duration: 0.6 }}
+            className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8"
+            style={{ fontWeight: 900, opacity: titleOpacity }}
           >
-            {["S", "E", "R", "V", "I", "C", "E", "S"].map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ y: 200, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
+            SERVICES
           </motion.h2>
 
           <motion.p
@@ -83,7 +93,7 @@ export function Services() {
             className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]"
             style={{ fontWeight: 600 }}
           >
-            Discover our tailored services designed to elevate your brand, enhance user experience.
+            We combine strategy, creativity and technology to elevate your business and enhance your users experience.
           </motion.p>
         </motion.div>
 
@@ -100,9 +110,7 @@ export function Services() {
             >
               {/* Image Side */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.6 }}
-                className={`relative overflow-hidden ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
+                className={`relative overflow-hidden min-h-[200px] sm:min-h-[240px] md:min-h-[280px] ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
               >
                 <div className="absolute inset-0">
                   <ImageWithFallback
@@ -139,7 +147,7 @@ export function Services() {
 
                   {/* Animated Title */}
                   <h3
-                    className={`font-['Archivo',sans-serif] text-[48px] md:text-[64px] lg:text-[72px] leading-[0.9] tracking-[-0.02em] mb-6 overflow-hidden ${
+                    className={`font-['Archivo',sans-serif] text-[48px] md:text-[64px] lg:text-[72px] leading-[0.9] tracking-[-0.02em] mb-6 ${
                       service.bgColor.includes("28292D") || service.bgColor.includes("black")
                         ? "text-white"
                         : "text-[#28292D] dark:text-white"
@@ -147,7 +155,7 @@ export function Services() {
                     style={{ fontWeight: 900 }}
                   >
                     {service.title.split(" ").map((word, wordIndex) => (
-                      <div key={wordIndex} className="overflow-hidden">
+                      <div key={wordIndex}>
                         <motion.div
                           initial={{ y: 100 }}
                           whileInView={{ y: 0 }}
@@ -184,7 +192,6 @@ export function Services() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.7 + itemIndex * 0.1 }}
-                        whileHover={{ x: 10 }}
                         className={`font-['Archivo',sans-serif] text-[13px] tracking-[0.05em] flex items-center gap-2 ${
                           service.bgColor.includes("28292D") || service.bgColor.includes("black")
                             ? "text-white/60"
@@ -204,9 +211,8 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 1 }}
-                    whileHover={{ scale: 1.05, x: 10 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase px-8 py-4 border-2 transition-all duration-300 ${
+                    className={`font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase px-8 py-4 border-2 transition-colors duration-300 ${
                       service.bgColor.includes("28292D") || service.bgColor.includes("black")
                         ? "border-white text-white hover:bg-white hover:text-[#28292D]"
                         : "border-[#28292D] dark:border-white text-[#28292D] dark:text-white hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D]"

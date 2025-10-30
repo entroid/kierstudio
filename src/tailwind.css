@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Use class-based dark mode by making the `dark:` variant depend on `.dark` on the root */
+@custom-variant dark (&:where(.dark *));
+
+/* Tell Tailwind where to scan for class names in v4 */
+@source "../index.html";
+@source "./**/*.{ts,tsx,js,jsx}";
+
+@layer base {
+  /* Ensure <b> inside paragraphs uses the main foreground color (same as titles) */
+  p b {
+    color: var(--foreground);
+  }
+
+  /* Smooth scrolling for in-page anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Global heading defaults (override with utilities where needed) */
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--foreground);
+    /* sizes via utilities */
+  }
+
+  h2 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--foreground);
+  }
+
+  h3 {
+    font-family: 'Archivo', sans-serif;
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  /* Provide sensible defaults using Tailwind utilities */
+  h1 {@apply text-4xl md:text-6xl font-extrabold leading-tight mt-8 mb-4;}
+  h2 {@apply text-3xl md:text-4xl font-bold leading-snug mt-6 mb-3;}
+  h3 {@apply text-2xl md:text-3xl font-bold leading-snug mt-5 mb-2;}
+}
+@layer components {}
+@layer utilities {}

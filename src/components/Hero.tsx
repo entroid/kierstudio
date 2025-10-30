@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useTheme } from "./ThemeContext";
+import { Button } from "./ui/button";
 
 export function Hero() {
   const { accessibility } = useTheme();
@@ -14,56 +15,16 @@ export function Hero() {
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative bg-[#1a1a1a] dark:bg-black overflow-hidden"
+            className="relative bg-[#1a1a1a] dark:bg-black overflow-hidden min-h-[200px] sm:min-h-[240px] md:min-h-[280px]"
           >
             <div className="absolute inset-0">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1667201698408-0c06e55b3da7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNhcmRzJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2MTA3NzI4MHww&ixlib=rb-4.1.0&q=80&w=1080"
+                src="/hero-bkg.jpg"
                 alt="Kier Studio Design Mockups"
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover opacity-80"
               />
-            </div>
+            </div>         
             
-            {/* Diagonal stripes overlay effect */}
-            <div className="absolute inset-0 opacity-30">
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.05, duration: 0.8 }}
-                  className="absolute h-full w-12 bg-white/10"
-                  style={{
-                    left: `${i * 5}%`,
-                    transform: "skewX(-15deg)",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Floating mockups text */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                animate={{ opacity: 1, scale: 1, rotate: -8 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-white/20 font-['Archivo',sans-serif] text-[120px] uppercase tracking-tight pointer-events-none"
-                style={{ fontWeight: 900 }}
-              >
-                MOCKUP
-              </motion.div>
-            </div>
-
-            {/* Small logo top left */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="absolute top-8 left-8 text-white font-['Archivo',sans-serif] text-[24px] tracking-wider"
-              style={{ fontWeight: 800 }}
-            >
-              KIER
-            </motion.div>
           </motion.div>
 
           {/* Right - Content */}
@@ -105,10 +66,12 @@ export function Hero() {
                 className="mb-12"
               >
                 <h2 className="font-['Archivo',sans-serif] text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] text-[#28292D] dark:text-white/90 mb-6" style={{ fontWeight: 600 }}>
-                  Crafting impactful SaaS and Websites that drive growth and success.
+                  We craft impactful SaaS and Websites that drive growth and success.
                 </h2>
                 <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7] max-w-[550px]" style={{ fontWeight: 400 }}>
-                  Comprehensive vision guiding your transformation — aligning your company’s goals, technology needs, and growth direction through strategic design and development.
+                  Comprehensive vision guiding your digital product.
+                  <br />
+                  Aligning your company’s goals, technology needs, and growth direction through <b>strategic design and development</b>.
                 </p>
               </motion.div>
 
@@ -126,13 +89,15 @@ export function Hero() {
                 >
                   Let's Talk →
                 </motion.a>
-                <motion.button
+                <motion.a
+                  href="#proyectos"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-10 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300" style={{ fontWeight: 700 }}
+                  className="px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase border-2 text-[#28292D] border-[#28292D] hover:bg-[#28292D] hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-[#28292D] transition-colors duration-300 cursor-pointer"
+                  style={{ fontWeight: 700 }}
                 >
                   View Work
-                </motion.button>
+                </motion.a>
               </motion.div>
             </div>
           </motion.div>

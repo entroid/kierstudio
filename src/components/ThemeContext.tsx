@@ -25,11 +25,25 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     screenReader: false,
   });
 
+  // Initialize theme from localStorage or system preference
   useEffect(() => {
+    try {
+      const stored = localStorage.getItem("theme");
+      const isSystemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialDark = stored ? stored === "dark" : isSystemDark;
+      setDarkMode(initialDark);
+    } catch {}
+  }, []);
+
+  // Reflect theme on <html> and persist
+  useEffect(() => {
+    const root = document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
+      try { localStorage.setItem("theme", "dark"); } catch {}
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
+      try { localStorage.setItem("theme", "light"); } catch {}
     }
   }, [darkMode]);
 

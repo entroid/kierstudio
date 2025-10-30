@@ -130,7 +130,7 @@ export function Projects() {
               onClick={() => openModal(project)}
               className="group cursor-pointer relative overflow-hidden"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#1a1a1a]">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#1a1a1a] min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
@@ -221,7 +221,7 @@ export function Projects() {
 
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image Gallery Side */}
-                <div className="bg-[#0a0a0a] relative min-h-[400px] lg:min-h-[600px]">
+                <div className="bg-[#0a0a0a] relative min-h-[400px] sm:min-h-[480px] md:min-h-[560px] lg:min-h-[600px]">
                   <ImageWithFallback
                     src={selectedProject.images[currentImageIndex]}
                     alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}

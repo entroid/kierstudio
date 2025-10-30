@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
-import { ArrowRight, Mail, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Mail, Phone, CheckCircle, XCircle } from "lucide-react";
 
 export function CTA() {
+  const [result, setResult] = useState<{ type: "success" | "error"; message: string } | null>(null);
   return (
     <section id="contacto" className="py-32 bg-white dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-500">
       {/* Animated Background */}
@@ -49,7 +51,7 @@ export function CTA() {
             </h2>
 
             <p className="font-['Archivo',sans-serif] text-[18px] md:text-[24px] text-[#28292D]/70 dark:text-white/70 leading-[1.6] mb-12 max-w-[600px]" style={{ fontWeight: 400 }}>
-              Transformemos tu visión en una experiencia digital excepcional. Estamos listos para hacer realidad tu próximo proyecto.
+              Let's turn your idea into an exceptional digital experience. We are ready to bring your next project to life.
             </p>
 
             {/* Contact Methods */}
@@ -67,32 +69,34 @@ export function CTA() {
                     Email Us
                   </p>
                   <p className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white" style={{ fontWeight: 600 }}>
-                    hello@kierstudio.com
+                    info@kierstudio.com
                   </p>
                 </div>
               </motion.a>
 
               <motion.a
-                href="tel:+5491123456789"
+                href="https://wa.me/5493417211814?text=Hi%20Kier%20Studio.%20I%20am%20contacting%20through%20your%20website."
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-4 group cursor-pointer"
               >
-                <div className="w-12 h-12 bg-[#D52169] group-hover:bg-[#28292D] rounded-full flex items-center justify-center transition-colors">
-                  <MessageCircle className="text-white" size={20} />
+                <div className="w-12 h-12 bg-[#25D366] group-hover:bg-[#1ea955] rounded-full flex items-center justify-center transition-colors">
+                  <Phone className="text-white" size={20} />
                 </div>
                 <div>
                   <p className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50" style={{ fontWeight: 600 }}>
-                    Call Us
+                    WhatsApp
                   </p>
                   <p className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white" style={{ fontWeight: 600 }}>
-                    +54 9 11 2345 6789
+                    +54 9 341 7211814
                   </p>
                 </div>
               </motion.a>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA Buttons (temporarily hidden) */}
+            <div className="hidden flex-col sm:flex-row gap-4">
               <motion.button
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.95 }}
@@ -120,13 +124,48 @@ export function CTA() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#F5F5F5] dark:bg-[#1a1a1a] p-10 lg:p-12 rounded-xl border border-[#28292D]/5 dark:border-white/5"
+            className="relative bg-[#F5F5F5] dark:bg-[#1a1a1a] p-10 lg:p-12 rounded-xl border border-[#28292D]/5 dark:border-white/5"
           >
             <h3 className="font-['Archivo',sans-serif] text-[32px] md:text-[42px] text-[#28292D] dark:text-white mb-8" style={{ fontWeight: 800 }}>
               Send us a message
             </h3>
 
-            <form className="space-y-6">
+            <form
+              className="space-y-6"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget as HTMLFormElement;
+                if (!form.checkValidity()) {
+                  const firstInvalid = form.querySelector(':invalid') as HTMLElement | null;
+                  if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    (firstInvalid as HTMLElement).focus();
+                  }
+                  return;
+                }
+                try {
+                  const data = new FormData(form);
+                  const res = await fetch('https://formsubmit.co/ajax/info@kierstudio.com', {
+                    method: 'POST',
+                    headers: { Accept: 'application/json' },
+                    body: data,
+                  });
+                  const json = await res.json().catch(() => ({} as any));
+                  if (res.ok) {
+                    setResult({ type: 'success', message: 'Thanks! Your message has been sent. We will get back to you soon.' });
+                    form.reset();
+                  } else {
+                    setResult({ type: 'error', message: (json && (json.message || json.error)) || 'Please try again later.' });
+                  }
+                } catch (err) {
+                  setResult({ type: 'error', message: 'Please try again later.' });
+                }
+              }}
+            >
+              <input type="hidden" name="_subject" value="New message from Kier Studio website" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
               <div>
                 <label
                   htmlFor="name"
@@ -138,7 +177,14 @@ export function CTA() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full bg-white dark:bg-[#28292D] border-2 border-[#28292D]/10 dark:border-white/10 focus:border-[#D52169] px-5 py-4 font-['Archivo',sans-serif] text-[14px] text-[#28292D] dark:text-white outline-none transition-colors"
+                  required
+                  onInvalid={(e) => {
+                    const t = e.target as HTMLInputElement;
+                    t.setCustomValidity(t.validity.valueMissing ? "Please enter your name." : "");
+                  }}
+                  onInput={(e) => (e.currentTarget as HTMLInputElement).setCustomValidity("")}
                   placeholder="John Doe"
                   style={{ fontWeight: 400 }}
                 />
@@ -155,7 +201,19 @@ export function CTA() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full bg-white dark:bg-[#28292D] border-2 border-[#28292D]/10 dark:border-white/10 focus:border-[#D52169] px-5 py-4 font-['Archivo',sans-serif] text-[14px] text-[#28292D] dark:text-white outline-none transition-colors"
+                  required
+                  onInvalid={(e) => {
+                    const t = e.target as HTMLInputElement;
+                    const msg = t.validity.valueMissing
+                      ? "Please enter your email address."
+                      : t.validity.typeMismatch
+                      ? "Please enter a valid email address."
+                      : "";
+                    t.setCustomValidity(msg);
+                  }}
+                  onInput={(e) => (e.currentTarget as HTMLInputElement).setCustomValidity("")}
                   placeholder="john@example.com"
                   style={{ fontWeight: 400 }}
                 />
@@ -171,13 +229,23 @@ export function CTA() {
                 </label>
                 <select
                   id="project"
+                  name="project"
                   className="w-full bg-white dark:bg-[#28292D] border-2 border-[#28292D]/10 dark:border-white/10 focus:border-[#D52169] px-5 py-4 font-['Archivo',sans-serif] text-[14px] text-[#28292D] dark:text-white outline-none transition-colors"
+                  required
+                  defaultValue=""
+                  onInvalid={(e) => {
+                    const t = e.target as HTMLSelectElement;
+                    t.setCustomValidity(t.validity.valueMissing ? "Please select a project type." : "");
+                  }}
+                  onInput={(e) => (e.currentTarget as HTMLSelectElement).setCustomValidity("")}
                   style={{ fontWeight: 400 }}
                 >
-                  <option>Brand Strategy</option>
-                  <option>Website Design</option>
+                  <option value="" disabled>Select a project type…</option>
+                  <option>SaaS</option>
+                  <option>Website</option>
                   <option>E-commerce</option>
                   <option>Mobile App</option>
+                  <option>UX/UI consulting</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -192,8 +260,15 @@ export function CTA() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   className="w-full bg-white dark:bg-[#28292D] border-2 border-[#28292D]/10 dark:border-white/10 focus:border-[#D52169] px-5 py-4 font-['Archivo',sans-serif] text-[14px] text-[#28292D] dark:text-white outline-none transition-colors resize-none"
+                  required
+                  onInvalid={(e) => {
+                    const t = e.target as HTMLTextAreaElement;
+                    t.setCustomValidity(t.validity.valueMissing ? "Please enter a message." : "");
+                  }}
+                  onInput={(e) => (e.currentTarget as HTMLTextAreaElement).setCustomValidity("")}
                   placeholder="Share your vision with us..."
                   style={{ fontWeight: 400 }}
                 />
@@ -210,6 +285,31 @@ export function CTA() {
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
               </motion.button>
             </form>
+            {result && (
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20">
+                <div className="bg-white dark:bg-[#1a1a1a] rounded-xl p-8 max-w-md mx-auto text-center border border-[#28292D]/10 dark:border-white/10">
+                  {result.type === 'success' ? (
+                    <CheckCircle className="text-[#22c55e] w-12 h-12 mx-auto mb-4" />
+                  ) : (
+                    <XCircle className="text-[#ef4444] w-12 h-12 mx-auto mb-4" />
+                  )}
+                  <h4 className="font-['Archivo',sans-serif] text-[20px] text-[#28292D] dark:text-white mb-2" style={{ fontWeight: 700 }}>
+                    {result.type === 'success' ? 'Message sent successfully' : 'Something went wrong'}
+                  </h4>
+                  <p className="font-['Archivo',sans-serif] text-[14px] text-[#28292D]/70 dark:text-white/70 mb-6" style={{ fontWeight: 400 }}>
+                    {result.message}
+                  </p>
+                  <button
+                    onClick={() => setResult(null)}
+                    className="bg-[#D52169] text-white px-6 py-3 font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase rounded-md hover:bg-[#28292D] transition-colors"
+                    style={{ fontWeight: 700 }}
+                    type="button"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

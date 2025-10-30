@@ -11,7 +11,7 @@ export function Partners() {
   ];
 
   return (
-    <section className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500">
+    <section id="about" className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         {/* About Us Section */}
         <motion.div
@@ -25,9 +25,9 @@ export function Partners() {
           </span>
           
           <h2 className="font-['Archivo',sans-serif] text-[64px] md:text-[96px] lg:text-[120px] leading-[0.9] tracking-[-0.03em] text-[#28292D] dark:text-white mb-12" style={{ fontWeight: 900 }}>
-            CREATIVE
+            STRATEGIC 
             <br />
-            BRANDS.
+            DESIGN.
             <br />
             POWERFUL
             <br />
@@ -42,7 +42,9 @@ export function Partners() {
               transition={{ delay: 0.2 }}
             >
               <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]" style={{ fontWeight: 400 }}>
-                En nuestro estudio basado en Buenos Aires, nos dedicamos a crear espacios digitales que inspiran y perduran. Especializados en diseño comercial, multipropósito y estratégico, combinamos creatividad con funcionalidad para dar vida a tu visión.
+                At Kier, our Argentina-based studio, we create digital experiences that inspire, connect, and endure. We specialize in strategic <b>design and development of digital products</b>, combining creativity with a technological vision that drives your brand's growth.
+                <br />
+                (Strategy + UX/UI + Development)
               </p>
             </motion.div>
             <motion.div
@@ -52,7 +54,7 @@ export function Partners() {
               transition={{ delay: 0.3 }}
             >
               <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]" style={{ fontWeight: 400 }}>
-                Nuestro equipo de arquitectos digitales y diseñadores apasionados trabaja en estrecha colaboración con los clientes, fomentando un proceso colaborativo que prioriza tus necesidades únicas. Creemos que los mejores diseños provienen de comprender los matices de cada proyecto.
+                Our team of digital architects, passionate designers, and complementary top-tier partners works closely with every client, fostering a collaborative process that prioritizes your objectives and brand essence. We believe the best results come from a deep understanding of each project's nuances and transforming them into purposeful digital solutions.
               </p>
             </motion.div>
           </div>
@@ -76,7 +78,7 @@ export function Partners() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
                 whileHover={{ y: -10, scale: 1.05 }}
                 className="group cursor-pointer"
               >
@@ -84,8 +86,8 @@ export function Partners() {
                   {/* Animated background */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.5, opacity: 0.05 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.4, opacity: 0.05 }}
+                    transition={{ duration: 0.35 }}
                     className="absolute inset-0 bg-[#D52169]"
                   />
 
@@ -93,7 +95,7 @@ export function Partners() {
                   <motion.div
                     className="relative z-10 text-center"
                     whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    transition={{ type: "spring", stiffness: 200 }}
                   >
                     <div className="font-['Archivo',sans-serif] text-[28px] md:text-[36px] text-[#28292D] dark:text-white group-hover:text-[#D52169] transition-colors duration-300 mb-2" style={{ fontWeight: 800 }}>
                       {partner.name === "ASGARDIA" ? (
