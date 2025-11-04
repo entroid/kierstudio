@@ -29,7 +29,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("theme");
-      const isSystemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isSystemDark =
+        window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       const initialDark = stored ? stored === "dark" : isSystemDark;
       setDarkMode(initialDark);
     } catch {}
@@ -40,10 +41,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement;
     if (darkMode) {
       root.classList.add("dark");
-      try { localStorage.setItem("theme", "dark"); } catch {}
+      try {
+        localStorage.setItem("theme", "dark");
+      } catch {}
     } else {
       root.classList.remove("dark");
-      try { localStorage.setItem("theme", "light"); } catch {}
+      try {
+        localStorage.setItem("theme", "light");
+      } catch {}
     }
   }, [darkMode]);
 

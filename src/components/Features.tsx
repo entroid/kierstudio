@@ -11,7 +11,8 @@ export function Features() {
     {
       icon: Users,
       title: "NEGOCIO + USUARIOS",
-      description: "Mejoramos la experiencia de usuario, optimizamos procesos y aumentamos las tasas de exito.",
+      description:
+        "Mejoramos la experiencia de usuario, optimizamos procesos y aumentamos las tasas de exito.",
     },
     {
       icon: Rocket,
@@ -43,9 +44,7 @@ export function Features() {
                 >
                   <Icon className="text-white" size={28} />
                 </motion.div>
-                <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">
-                  {feature.title}
-                </h3>
+                <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">{feature.title}</h3>
                 <p className="font-['Inter',sans-serif] text-[14px] text-[#000000] max-w-[298px]">
                   {feature.description}
                 </p>

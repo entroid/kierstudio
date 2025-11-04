@@ -23,7 +23,7 @@ module.exports = {
     // Keep unused vars as warnings; ignore underscores
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "caughtErrorsIgnorePattern": "^_" }
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
     ],
   },
   ignorePatterns: ["dist", "build", "node_modules", "coverage"],

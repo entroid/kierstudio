@@ -17,21 +17,24 @@ export function Testimonial() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "Trabajar con Kier Studio fue una experiencia transformadora. Su enfoque estratégico y atención al detalle elevaron nuestra marca a un nivel completamente nuevo. El resultado superó todas nuestras expectativas.",
+      quote:
+        "Trabajar con Kier Studio fue una experiencia transformadora. Su enfoque estratégico y atención al detalle elevaron nuestra marca a un nivel completamente nuevo. El resultado superó todas nuestras expectativas.",
       author: "María González",
       role: "CEO",
       company: "Asgardia Real Estate",
     },
     {
       id: 2,
-      quote: "El equipo de Kier Studio no solo creó un sitio web hermoso, sino que también entendió profundamente nuestro negocio y audiencia. Su experiencia en UX/UI se refleja en cada pixel del diseño final.",
+      quote:
+        "El equipo de Kier Studio no solo creó un sitio web hermoso, sino que también entendió profundamente nuestro negocio y audiencia. Su experiencia en UX/UI se refleja en cada pixel del diseño final.",
       author: "Carlos Martínez",
       role: "Founder",
       company: "Kanba SaaS",
     },
     {
       id: 3,
-      quote: "La profesionalidad y creatividad de Kier Studio es incomparable. Transformaron nuestra visión en una realidad digital impresionante que ha generado un impacto significativo en nuestro crecimiento.",
+      quote:
+        "La profesionalidad y creatividad de Kier Studio es incomparable. Transformaron nuestra visión en una realidad digital impresionante que ha generado un impacto significativo en nuestro crecimiento.",
       author: "Ana Rodríguez",
       role: "Marketing Director",
       company: "Goldline",
@@ -62,11 +65,17 @@ export function Testimonial() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-white/50 mb-6 block italic" style={{ fontWeight: 400 }}>
+          <span
+            className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-white/50 mb-6 block italic"
+            style={{ fontWeight: 400 }}
+          >
             (Client Stories)
           </span>
 
-          <h2 className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-white mb-8" style={{ fontWeight: 900 }}>
+          <h2
+            className="font-['Archivo',sans-serif] text-[80px] md:text-[120px] lg:text-[180px] leading-[0.85] tracking-[-0.04em] text-white mb-8"
+            style={{ fontWeight: 900 }}
+          >
             TESTIMONIALS
           </h2>
         </motion.div>
@@ -111,16 +120,25 @@ export function Testimonial() {
                 className="flex items-center gap-6"
               >
                 <div className="w-16 h-16 bg-[#D52169] rounded-full flex items-center justify-center">
-                  <span className="font-['Archivo',sans-serif] text-[24px] text-white" style={{ fontWeight: 900 }}>
+                  <span
+                    className="font-['Archivo',sans-serif] text-[24px] text-white"
+                    style={{ fontWeight: 900 }}
+                  >
                     {testimonials[currentIndex].author.charAt(0)}
                   </span>
                 </div>
 
                 <div>
-                  <p className="font-['Archivo',sans-serif] text-[20px] text-white mb-1" style={{ fontWeight: 700 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[20px] text-white mb-1"
+                    style={{ fontWeight: 700 }}
+                  >
                     {testimonials[currentIndex].author}
                   </p>
-                  <p className="font-['Archivo',sans-serif] text-[14px] text-white/60" style={{ fontWeight: 400 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[14px] text-white/60"
+                    style={{ fontWeight: 400 }}
+                  >
                     {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                   </p>
                 </div>
@@ -137,7 +155,9 @@ export function Testimonial() {
               className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
               aria-label="Previous testimonial"
             >
-              <span className="text-white text-[24px] group-hover:-translate-x-1 transition-transform">←</span>
+              <span className="text-white text-[24px] group-hover:-translate-x-1 transition-transform">
+                ←
+              </span>
             </motion.button>
 
             <motion.button
@@ -147,7 +167,9 @@ export function Testimonial() {
               className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
               aria-label="Next testimonial"
             >
-              <span className="text-white text-[24px] group-hover:translate-x-1 transition-transform">→</span>
+              <span className="text-white text-[24px] group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </motion.button>
 
             {/* Dots */}
@@ -188,10 +210,16 @@ export function Testimonial() {
               whileHover={{ y: -5 }}
               className="text-center"
             >
-              <div className="font-['Archivo',sans-serif] text-[48px] md:text-[64px] text-[#D52169] mb-2" style={{ fontWeight: 900 }}>
+              <div
+                className="font-['Archivo',sans-serif] text-[48px] md:text-[64px] text-[#D52169] mb-2"
+                style={{ fontWeight: 900 }}
+              >
                 {stat.number}
               </div>
-              <div className="font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase text-white/60" style={{ fontWeight: 600 }}>
+              <div
+                className="font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase text-white/60"
+                style={{ fontWeight: 600 }}
+              >
                 {stat.label}
               </div>
             </motion.div>

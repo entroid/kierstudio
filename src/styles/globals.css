@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -200,7 +200,7 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -208,12 +208,12 @@ html {
 
 /* Focus visible styles for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid #D52169;
+  outline: 2px solid #d52169;
   outline-offset: 2px;
 }
 
 .dark *:focus-visible {
-  outline: 2px solid #D52169;
+  outline: 2px solid #d52169;
   outline-offset: 2px;
 }
 

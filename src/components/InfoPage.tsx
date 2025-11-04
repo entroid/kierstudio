@@ -9,12 +9,22 @@ interface InfoPageProps {
   backLabel?: string;
 }
 
-export function InfoPage({ title, children, lastUpdatedLabel, backHref, backLabel }: InfoPageProps) {
+export function InfoPage({
+  title,
+  children,
+  lastUpdatedLabel,
+  backHref,
+  backLabel,
+}: InfoPageProps) {
   const lastUpdated = lastUpdatedLabel ?? `Last updated: ${new Date().toLocaleDateString()}`;
   return (
     <section className="py-24 bg-white dark:bg-[#0a0a0a] transition-colors duration-500">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {backHref && (
             <a
               href={backHref}
@@ -30,7 +40,10 @@ export function InfoPage({ title, children, lastUpdatedLabel, backHref, backLabe
           >
             {title}
           </h1>
-          <p className="font-['Archivo',sans-serif] text-[14px] text-[#28292D]/60 dark:text-white/60 mb-10" style={{ fontWeight: 400 }}>
+          <p
+            className="font-['Archivo',sans-serif] text-[14px] text-[#28292D]/60 dark:text-white/60 mb-10"
+            style={{ fontWeight: 400 }}
+          >
             {lastUpdated}
           </p>
           <div className="prose prose-neutral dark:prose-invert max-w-none">{children}</div>
