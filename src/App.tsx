@@ -15,7 +15,7 @@ import Cookies from "./pages/Cookies";
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const getRoute = () => (window.location.hash.replace(/^#/, "") || "/");
+  const getRoute = () => window.location.hash.replace(/^#/, "") || "/";
   const [route, setRoute] = useState<string>(getRoute());
 
   useEffect(() => {

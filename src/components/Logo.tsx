@@ -3,7 +3,12 @@ import svgPaths from "../imports/svg-hvmoih2jwx";
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <svg className="block w-full h-full" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1075 730">
+      <svg
+        className="block w-full h-full"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1075 730"
+      >
         <g>
           <g>
             <path d={svgPaths.p22502500} fill="#D52169" />
@@ -42,7 +47,12 @@ export function Logo({ className = "" }: { className?: string }) {
 export function LogoCompact({ className = "" }: { className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <svg className="block w-full h-full" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 36 1003 516">
+      <svg
+        className="block w-full h-full"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 36 1003 516"
+      >
         <g>
           <g>
             <path d={svgPaths.p22502500} fill="#D52169" />

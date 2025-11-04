@@ -1,7 +1,7 @@
 /* PostCSS config for Tailwind pipeline */
 module.exports = {
   plugins: {
-    '@tailwindcss/postcss': {},
+    "@tailwindcss/postcss": {},
     autoprefixer: {},
   },
 };

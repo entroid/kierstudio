@@ -21,7 +21,10 @@ export function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/10"
     >
-      <nav className="max-w-[1440px] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between" aria-label="Navegación principal">
+      <nav
+        className="max-w-[1440px] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between"
+        aria-label="Navegación principal"
+      >
         <motion.a
           href="#inicio"
           whileHover={{ scale: 1.05 }}

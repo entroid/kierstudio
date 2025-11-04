@@ -41,8 +41,11 @@ export function Footer() {
               STUDIO
             </motion.h2>
 
-            <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-white/70 leading-[1.7] mb-8 max-w-[500px]" style={{ fontWeight: 400 }}>
-              Comprehensive strategy crafting your digital product. 
+            <p
+              className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-white/70 leading-[1.7] mb-8 max-w-[500px]"
+              style={{ fontWeight: 400 }}
+            >
+              Comprehensive strategy crafting your digital product.
               <br />
               Based in Argentina, working globally.
             </p>
@@ -57,7 +60,10 @@ export function Footer() {
                 className="flex items-center gap-3 text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
               >
                 <MapPin size={18} />
-                <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
+                <span
+                  className="font-['Archivo',sans-serif] text-[14px]"
+                  style={{ fontWeight: 400 }}
+                >
                   Rosario, Argentina
                 </span>
               </motion.a>
@@ -67,7 +73,10 @@ export function Footer() {
                 className="flex items-center gap-3 text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
               >
                 <Mail size={18} />
-                <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
+                <span
+                  className="font-['Archivo',sans-serif] text-[14px]"
+                  style={{ fontWeight: 400 }}
+                >
                   info@kierstudio.com
                 </span>
               </motion.div>
@@ -80,7 +89,10 @@ export function Footer() {
                 className="flex items-center gap-3 text-white/60 hover:text-[#D52169] transition-colors cursor-pointer"
               >
                 <Phone size={18} />
-                <span className="font-['Archivo',sans-serif] text-[14px]" style={{ fontWeight: 400 }}>
+                <span
+                  className="font-['Archivo',sans-serif] text-[14px]"
+                  style={{ fontWeight: 400 }}
+                >
                   +54 9 341 7211814
                 </span>
               </motion.a>
@@ -112,12 +124,15 @@ export function Footer() {
           >
             {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
               <div key={categoryIndex} className="justify-self-start lg:justify-self-end lg:w-auto">
-                <h3 className="font-['Archivo',sans-serif] text-[13px] tracking-[0.15em] uppercase text-white mb-6 lg:text-right" style={{ fontWeight: 700 }}>
+                <h3
+                  className="font-['Archivo',sans-serif] text-[13px] tracking-[0.15em] uppercase text-white mb-6 lg:text-right"
+                  style={{ fontWeight: 700 }}
+                >
                   {category}
                 </h3>
                 <ul className="space-y-3 lg:text-right">
                   {links.map((link: any, linkIndex: number) => {
-                    const item = typeof link === 'string' ? { label: link, href: '#' } : link;
+                    const item = typeof link === "string" ? { label: link, href: "#" } : link;
                     return (
                       <motion.li key={linkIndex} whileHover={{ x: 5 }}>
                         <a
@@ -145,13 +160,22 @@ export function Footer() {
         >
           <div className="grid md:grid-cols-2 gap-8 items-end">
             <div>
-              <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-white/50 mb-4 block italic" style={{ fontWeight: 400 }}>
+              <span
+                className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-white/50 mb-4 block italic"
+                style={{ fontWeight: 400 }}
+              >
                 (Stay Updated)
               </span>
-              <h3 className="font-['Archivo',sans-serif] text-[32px] md:text-[48px] text-white leading-[1.1] mb-3" style={{ fontWeight: 800 }}>
+              <h3
+                className="font-['Archivo',sans-serif] text-[32px] md:text-[48px] text-white leading-[1.1] mb-3"
+                style={{ fontWeight: 800 }}
+              >
                 Subscribe to our newsletter
               </h3>
-              <p className="font-['Archivo',sans-serif] text-[14px] text-white/60" style={{ fontWeight: 400 }}>
+              <p
+                className="font-['Archivo',sans-serif] text-[14px] text-white/60"
+                style={{ fontWeight: 400 }}
+              >
                 Get the latest updates on design trends and our work.
               </p>
             </div>
@@ -177,7 +201,10 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-['Archivo',sans-serif] text-[12px] text-white/40" style={{ fontWeight: 400 }}>
+          <p
+            className="font-['Archivo',sans-serif] text-[12px] text-white/40"
+            style={{ fontWeight: 400 }}
+          >
             © {currentYear} Kier Studio. All rights reserved.
           </p>
 
@@ -208,8 +235,6 @@ export function Footer() {
             </motion.a>
           </div>
         </div>
-
-        
       </div>
     </footer>
   );
