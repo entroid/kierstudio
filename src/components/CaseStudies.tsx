@@ -23,7 +23,7 @@ export function CaseStudies() {
       title: "Rediseño de dashboard - SaaS",
       results: [
         "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
+        "+40% en tasa del conversion.",
       ],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
     },
