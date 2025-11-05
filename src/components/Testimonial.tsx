@@ -197,8 +197,8 @@ export function Testimonial() {
         >
           {[
             { number: "50+", label: "Projects Completed" },
-            { number: "30+", label: "Happy Clients" },
-            { number: "5+", label: "Years Experience" },
+            { number: "+32%", label: "Convertion Rates" },
+            { number: "10+", label: "Years Experience" },
             { number: "100%", label: "Client Satisfaction" },
           ].map((stat, index) => (
             <motion.div
