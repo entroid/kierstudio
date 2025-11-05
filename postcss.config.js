@@ -1,5 +1,5 @@
 /* PostCSS config for Tailwind pipeline */
-module.exports = {
+export default {
   plugins: {
     '@tailwindcss/postcss': {},
     autoprefixer: {},
