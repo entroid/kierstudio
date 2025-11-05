@@ -12,6 +12,7 @@ interface Project {
   services: string[];
   image: string;
   images: string[];
+  url?: string;
 }
 
 export function Projects() {
@@ -21,33 +22,36 @@ export function Projects() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "ASGARDIA",
-      category: "Real Estate Platform",
-      year: "2024",
+      title: "HOLY Beer Hotel",
+      category: "Hostel - Website",
+      year: "2025",
       description:
-        "Un proyecto de transformación digital completo que llevó a Asgardia a convertirse en la plataforma de bienes raíces líder en la región. Creamos una experiencia inmersiva que combina diseño elegante con funcionalidad intuitiva.",
-      services: ["Brand Strategy", "Website Design", "UX/UI Design", "Development"],
+        "We redesigned the Holy Beer Hotel landing page to elevate its digital presence and drive higher conversions. The new design blends refined aesthetics, intuitive UI, and a strategic content structure that guides visitors through the brand story toward booking and engagement. Through clear hierarchy, optimized visuals, and persuasive sections, the new site captures the hotel’s unique character while improving user flow and conversion performance.",
+      services: ["Website Design", "UX/UI", "Strategy"],
       image:
-        "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzYxMDc4MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "/projects/holy-mock.png",
       images: [
-        "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzYxMDc4MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2MDk4NjE2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        "/projects/hero.png",
+        "/projects/Landing0000.png",
       ],
+      url: "https://beerhoteles.com/",
     },
     {
       id: 2,
-      title: "GOLDLINE",
-      category: "E-commerce",
+      title: "TEAMIE.",
+      category: "Team Communication - Website",
       year: "2024",
       description:
-        "Diseño de comercio electrónico de lujo que redefinió la experiencia de compra online. Implementamos un sistema de diseño cohesivo que refleja la exclusividad de la marca.",
-      services: ["Visual Identity", "E-commerce Design", "Photography Direction"],
+        "We designed and developed the Teamie. landing page to support the launch of this new team collaboration startup. The goal was to present the product clearly and build credibility from day one. The site features a modern, startup-oriented design, with a strong focus on clarity, trust, and conversion. Additionally, we implemented a custom blog section powered by Strapi CMS, allowing the Teamie. team to easily manage and publish content to boost visibility and SEO.",
+      services: ["Visual Identity", "Website", "Blog CMS"],
       image:
-        "https://images.unsplash.com/photo-1616205255812-c07c8102cc02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwbW9ja3VwfGVufDF8fHx8MTc2MDk4MjQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+        "/projects/teamie/01-mock.jpg",
       images: [
-        "https://images.unsplash.com/photo-1616205255812-c07c8102cc02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwbW9ja3VwfGVufDF8fHx8MTc2MDk4MjQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2MDk4NjE2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        "/projects/teamie/01.png",
+        "/projects/teamie/02.png",
+        "/projects/teamie/05.png",
       ],
+      url: "https://teamie-show.webflow.io/",
     },
     {
       id: 3,
@@ -63,6 +67,7 @@ export function Projects() {
         "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYwOTg0NzQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
         "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzYxMDc4MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       ],
+      url: "https://example.com",
     },
     {
       id: 4,
@@ -78,6 +83,7 @@ export function Projects() {
         "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2MDk4NjE2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
         "https://images.unsplash.com/photo-1616205255812-c07c8102cc02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwbW9ja3VwfGVufDF8fHx8MTc2MDk4MjQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
       ],
+      url: "https://example.com",
     },
   ];
 
@@ -158,7 +164,7 @@ export function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-black/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
 
                 {/* Project Info Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -336,14 +342,19 @@ export function Projects() {
                   </div>
 
                   {/* CTA */}
-                  <motion.button
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] w-fit cursor-pointer"
-                    style={{ fontWeight: 700 }}
-                  >
-                    Visit Website →
-                  </motion.button>
+                  {selectedProject.url && selectedProject.url.trim() !== "" && (
+                    <motion.a
+                      href={selectedProject.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] w-fit cursor-pointer inline-block"
+                      style={{ fontWeight: 700 }}
+                    >
+                      Visit Website →
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>

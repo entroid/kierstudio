@@ -96,11 +96,7 @@ export function Partners() {
                 className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]"
                 style={{ fontWeight: 400 }}
               >
-                Our team of digital architects, passionate designers, and complementary top-tier
-                partners works closely with every client, fostering a collaborative process that
-                prioritizes your objectives and brand essence. We believe the best results come from
-                a deep understanding of each project's nuances and transforming them into purposeful
-                digital solutions.
+                With more then 10 years of experience in the IT industry, our team of passionate designers, digital architects, and complementary top-tier partners works closely with every client, fostering a collaborative process that prioritizes your objectives and brand essence. We believe the best results come from a deep understanding of each project's nuances and transforming them into purposeful digital solutions.
               </p>
             </motion.div>
           </div>

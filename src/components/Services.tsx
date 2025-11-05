@@ -17,9 +17,9 @@ export function Services() {
   const services = [
     {
       title: "PRODUCT DESIGN",
-      subtitle: "End-to-end digital products: Strategy, comprehensive design and development.",
+      subtitle: "End-to-end digital products: Strategy, user centered design and development.",
       image:
-        "https://images.unsplash.com/photo-1551281044-8b87c2e2752b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/services/product-design3.jpg",
       services: ["Strategy", "UX/UI", "Development"],
       tag: "Strategy + UX/UI + Development",
       bgColor: "bg-[#F5F5F5] dark:bg-[#1a1a1a]",
@@ -29,8 +29,8 @@ export function Services() {
       subtitle:
         "Your online presentation card. Custom & responsive websites that engage users and drive conversions.",
       image:
-        "https://images.unsplash.com/photo-1677469684112-5dfb3aa4d3df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9kZXJufGVufDF8fHx8MTc2MTA2NTkyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      services: ["Website Design & Development", "Website Support"],
+        "/services/website2.jpg",
+      services: ["Website Design & Development", "Support"],
       tag: "Website Services",
       bgColor: "bg-[#28292D] dark:bg-black",
     },
@@ -38,7 +38,7 @@ export function Services() {
       title: "ECOMMERCE",
       subtitle: "Strategic design, setup, launch and support for your online store.",
       image:
-        "https://images.unsplash.com/photo-1633533447057-56ccf997f4fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwZGVzaWdufGVufDF8fHx8MTc2MTA0MjQyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        "/services/ecommerce.jpg",
       services: ["Ecommerce Setup & Launch", "Shopify", "Tiendanube", "WooCommerce"],
       tag: "Ecommerce Services",
       bgColor: "bg-[#F5F5F5] dark:bg-[#1a1a1a]",
@@ -47,11 +47,10 @@ export function Services() {
       title: "PRODUCT DEVELOPMENT",
       subtitle: "Build scalable content systems with headless CMS and seamless integrations.",
       image:
-        "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/services/dev.jpg",
       services: [
-        "Headless CMS (Sanity, Strapi)",
+        "Headless CMS",
         "Content Modeling",
-        "Custom Dashboards",
         "Integrations & APIs",
       ],
       tag: "Development",
