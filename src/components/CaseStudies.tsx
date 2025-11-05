@@ -5,58 +5,37 @@ export function CaseStudies() {
   const cases = [
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa del conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
     },
     {
       title: "Rediseño de dashboard - SaaS",
-      results: [
-        "+40% en retención de usuarios.",
-        "+40% en tasa de conversion.",
-      ],
+      results: ["+40% en retención de usuarios.", "+40% en tasa de conversion."],
       image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80",
     },
   ];
@@ -96,9 +75,7 @@ export function CaseStudies() {
                 />
               </motion.div>
               <div className="p-6">
-                <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">
-                  {caseStudy.title}
-                </h3>
+                <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">{caseStudy.title}</h3>
                 <ul className="space-y-2 font-['Inter',sans-serif] text-[14px] text-[#000000]">
                   {caseStudy.results.map((result, idx) => (
                     <li key={idx} className="flex items-start gap-2">
