@@ -2,16 +2,43 @@ import { motion } from "motion/react";
 
 export function Partners() {
   const partners = [
-    { name: "acme", tagline: "Design System" },
-    { name: "kanba", tagline: "SaaS Platform" },
-    { name: "goldline", tagline: "E-commerce" },
-    { name: "ASGARDIA", tagline: "Real Estate" },
-    { name: "UTOSIA", tagline: "Tech Startup" },
-    { name: "circle", tagline: "Financial Services" },
+    {
+      src: "/partners/agrosapiens-logo.png",
+      srcDark: "/partners/agrosapiens-logo-dark.png",
+      tagline: "Advertising",
+      href: "https://www.agrosapiens.com.ar",
+    },
+    {
+      src: "/partners/cuencadamico-logo.png",
+      srcDark: "/partners/cuencadamico-logo-dark.png",
+      tagline: "Packaging Design",
+      href: "https://cuencadamico.com.ar/",
+    },
+    {
+      src: "/partners/diego-ramos.png",
+      srcDark: "/partners/diego-ramos-dark.png",
+      tagline: "Branding",
+      href: "https://www.linkedin.com/in/diego-cristian-ramos-23405494/",
+    },
+    {
+      src: "/partners/logo_nuv.png",
+      srcDark: "/partners/logo_nuv-dark.png",
+      tagline: "AI Automation",
+      href: "https://nuviait.com/",
+    },
+    {
+      src: "/partners/logo-mercurio-group-web.png",
+      srcDark: "/partners/logo-mercurio-group-web-dark.png",
+      tagline: "Marketing - Comunication",
+      href: "https://mercurio.group/",
+    },
   ];
 
   return (
-    <section id="about" className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500">
+    <section
+      id="about"
+      className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500"
+    >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         {/* About Us Section */}
         <motion.div
@@ -20,12 +47,18 @@ export function Partners() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-8 block italic" style={{ fontWeight: 400 }}>
+          <span
+            className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-8 block italic"
+            style={{ fontWeight: 400 }}
+          >
             (About Us)
           </span>
-          
-          <h2 className="font-['Archivo',sans-serif] text-[64px] md:text-[96px] lg:text-[120px] leading-[0.9] tracking-[-0.03em] text-[#28292D] dark:text-white mb-12" style={{ fontWeight: 900 }}>
-            STRATEGIC 
+
+          <h2
+            className="font-['Archivo',sans-serif] text-[64px] md:text-[96px] lg:text-[120px] leading-[0.9] tracking-[-0.03em] text-[#28292D] dark:text-white mb-12"
+            style={{ fontWeight: 900 }}
+          >
+            STRATEGIC
             <br />
             DESIGN.
             <br />
@@ -41,8 +74,14 @@ export function Partners() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]" style={{ fontWeight: 400 }}>
-                At Kier, our Argentina-based studio, we create digital experiences that inspire, connect, and endure. We specialize in strategic <b>design and development of digital products</b>, combining creativity with a technological vision that drives your brand's growth.
+              <p
+                className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]"
+                style={{ fontWeight: 400 }}
+              >
+                At Kier, our Argentina-based studio, we create digital experiences that inspire,
+                connect, and endure. We specialize in strategic{" "}
+                <b>design and development of digital products</b>, combining creativity with a
+                technological vision that drives your brand's growth.
                 <br />
                 (Strategy + UX/UI + Development)
               </p>
@@ -53,8 +92,11 @@ export function Partners() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <p className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]" style={{ fontWeight: 400 }}>
-                Our team of digital architects, passionate designers, and complementary top-tier partners works closely with every client, fostering a collaborative process that prioritizes your objectives and brand essence. We believe the best results come from a deep understanding of each project's nuances and transforming them into purposeful digital solutions.
+              <p
+                className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7]"
+                style={{ fontWeight: 400 }}
+              >
+                With more then 10 years of experience in the IT industry, our team of passionate designers, digital architects, and complementary top-tier partners works closely with every client, fostering a collaborative process that prioritizes your objectives and brand essence. We believe the best results come from a deep understanding of each project's nuances and transforming them into purposeful digital solutions.
               </p>
             </motion.div>
           </div>
@@ -67,7 +109,10 @@ export function Partners() {
           viewport={{ once: true }}
           className="pt-20 border-t border-[#28292D]/10 dark:border-white/10"
         >
-          <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-12 block italic" style={{ fontWeight: 400 }}>
+          <span
+            className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-12 block italic"
+            style={{ fontWeight: 400 }}
+          >
             (Partnered With)
           </span>
 
@@ -82,7 +127,13 @@ export function Partners() {
                 whileHover={{ y: -10, scale: 1.05 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white dark:bg-[#1a1a1a] p-8 md:p-10 rounded-xl border border-[#28292D]/5 dark:border-white/5 hover:border-[#D52169]/30 dark:hover:border-[#D52169]/50 transition-all duration-500 h-[160px] flex flex-col justify-center items-center relative overflow-hidden">
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="bg-white dark:bg-[#1a1a1a] p-8 md:p-10 rounded-xl border border-[#28292D]/5 dark:border-white/5 hover:border-[#D52169]/30 dark:hover:border-[#D52169]/50 transition-all duration-500 h-[160px] flex flex-col justify-center items-center relative overflow-hidden">
                   {/* Animated background */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
@@ -97,40 +148,24 @@ export function Partners() {
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
-                    <div className="font-['Archivo',sans-serif] text-[28px] md:text-[36px] text-[#28292D] dark:text-white group-hover:text-[#D52169] transition-colors duration-300 mb-2" style={{ fontWeight: 800 }}>
-                      {partner.name === "ASGARDIA" ? (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[20px]">|||</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      ) : partner.name === "UTOSIA" ? (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[24px]">⬤</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      ) : partner.name === "circle" ? (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[24px]">⚪</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      ) : partner.name === "kanba" ? (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[20px]">⚡</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      ) : partner.name === "goldline" ? (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[20px]">▮▮</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      ) : (
-                        <div className="flex items-center gap-1">
-                          <span className="text-[20px]">⚛</span>
-                          <span>{partner.name}</span>
-                        </div>
-                      )}
+                    <div className="mb-2 flex items-center justify-center">
+                      <img
+                        src={partner.src}
+                        alt="Partner logo"
+                        className="block dark:hidden h-12 md:h-14 w-auto opacity-90"
+                        loading="lazy"
+                      />
+                      <img
+                        src={partner.srcDark}
+                        alt="Partner logo"
+                        className="hidden dark:block h-12 md:h-14 w-auto opacity-100"
+                        loading="lazy"
+                      />
                     </div>
-                    <p className="font-['Archivo',sans-serif] text-[10px] tracking-[0.15em] uppercase text-[#28292D]/40 dark:text-white/30 group-hover:text-[#D52169]/60 transition-colors duration-300" style={{ fontWeight: 500 }}>
+                    <p
+                      className="font-['Archivo',sans-serif] text-[10px] tracking-[0.15em] uppercase text-[#28292D]/40 dark:text-white/30 group-hover:text-[#D52169]/60 transition-colors duration-300"
+                      style={{ fontWeight: 500 }}
+                    >
                       {partner.tagline}
                     </p>
                   </motion.div>
@@ -142,7 +177,8 @@ export function Partners() {
                     className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#D52169]"
                     transition={{ duration: 0.3 }}
                   />
-                </div>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -165,7 +201,7 @@ export function Partners() {
                   className="font-['Archivo',sans-serif] text-[18px] text-[#28292D]/20 dark:text-white/10 tracking-[0.2em] uppercase"
                   style={{ fontWeight: 700 }}
                 >
-                  {partner.name}
+                  {partner.tagline}
                 </span>
               ))}
             </motion.div>

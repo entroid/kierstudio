@@ -5,7 +5,10 @@ import { ArrowRight, Mail, Phone, CheckCircle, XCircle } from "lucide-react";
 export function CTA() {
   const [result, setResult] = useState<{ type: "success" | "error"; message: string } | null>(null);
   return (
-    <section id="contacto" className="py-32 bg-white dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-500">
+    <section
+      id="contacto"
+      className="py-32 bg-white dark:bg-[#0a0a0a] relative overflow-hidden transition-colors duration-500"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         {[...Array(20)].map((_, i) => (
@@ -40,18 +43,28 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-8 block italic" style={{ fontWeight: 400 }}>
+            <span
+              className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-8 block italic"
+              style={{ fontWeight: 400 }}
+            >
               (Let's Connect)
             </span>
 
-            <h2 className="font-['Archivo',sans-serif] text-[64px] md:text-[96px] lg:text-[120px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8" style={{ fontWeight: 900 }}>
+            <h2
+              className="font-['Archivo',sans-serif] text-[64px] md:text-[96px] lg:text-[120px] leading-[0.85] tracking-[-0.04em] text-[#28292D] dark:text-white mb-8"
+              style={{ fontWeight: 900 }}
+            >
               READY TO
               <br />
               <span className="text-[#D52169]">START?</span>
             </h2>
 
-            <p className="font-['Archivo',sans-serif] text-[18px] md:text-[24px] text-[#28292D]/70 dark:text-white/70 leading-[1.6] mb-12 max-w-[600px]" style={{ fontWeight: 400 }}>
-              Let's turn your idea into an exceptional digital experience. We are ready to bring your next project to life.
+            <p
+              className="font-['Archivo',sans-serif] text-[18px] md:text-[24px] text-[#28292D]/70 dark:text-white/70 leading-[1.6] mb-12 max-w-[600px]"
+              style={{ fontWeight: 400 }}
+            >
+              Let's turn your idea into an exceptional digital experience. We are ready to bring
+              your next project to life.
             </p>
 
             {/* Contact Methods */}
@@ -65,10 +78,16 @@ export function CTA() {
                   <Mail className="text-white" size={20} />
                 </div>
                 <div>
-                  <p className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50" style={{ fontWeight: 600 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50"
+                    style={{ fontWeight: 600 }}
+                  >
                     Email Us
                   </p>
-                  <p className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white" style={{ fontWeight: 600 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white"
+                    style={{ fontWeight: 600 }}
+                  >
                     info@kierstudio.com
                   </p>
                 </div>
@@ -85,10 +104,16 @@ export function CTA() {
                   <Phone className="text-white" size={20} />
                 </div>
                 <div>
-                  <p className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50" style={{ fontWeight: 600 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50"
+                    style={{ fontWeight: 600 }}
+                  >
                     WhatsApp
                   </p>
-                  <p className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white" style={{ fontWeight: 600 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white"
+                    style={{ fontWeight: 600 }}
+                  >
                     +54 9 341 7211814
                   </p>
                 </div>
@@ -126,7 +151,10 @@ export function CTA() {
             transition={{ duration: 0.8 }}
             className="relative bg-[#F5F5F5] dark:bg-[#1a1a1a] p-10 lg:p-12 rounded-xl border border-[#28292D]/5 dark:border-white/5"
           >
-            <h3 className="font-['Archivo',sans-serif] text-[32px] md:text-[42px] text-[#28292D] dark:text-white mb-8" style={{ fontWeight: 800 }}>
+            <h3
+              className="font-['Archivo',sans-serif] text-[32px] md:text-[42px] text-[#28292D] dark:text-white mb-8"
+              style={{ fontWeight: 800 }}
+            >
               Send us a message
             </h3>
 
@@ -136,36 +164,48 @@ export function CTA() {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
                 if (!form.checkValidity()) {
-                  const firstInvalid = form.querySelector(':invalid') as HTMLElement | null;
+                  const firstInvalid = form.querySelector(":invalid") as HTMLElement | null;
                   if (firstInvalid) {
-                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
                     (firstInvalid as HTMLElement).focus();
                   }
                   return;
                 }
                 try {
                   const data = new FormData(form);
-                  const res = await fetch('https://formsubmit.co/ajax/info@kierstudio.com', {
-                    method: 'POST',
-                    headers: { Accept: 'application/json' },
+                  const res = await fetch("https://formsubmit.co/ajax/info@kierstudio.com", {
+                    method: "POST",
+                    headers: { Accept: "application/json" },
                     body: data,
                   });
-                  const json = await res.json().catch(() => ({} as any));
+                  const json = await res.json().catch(() => ({}) as any);
                   if (res.ok) {
-                    setResult({ type: 'success', message: 'Thanks! Your message has been sent. We will get back to you soon.' });
+                    setResult({
+                      type: "success",
+                      message: "Thanks! Your message has been sent. We will get back to you soon.",
+                    });
                     form.reset();
                   } else {
-                    setResult({ type: 'error', message: (json && (json.message || json.error)) || 'Please try again later.' });
+                    setResult({
+                      type: "error",
+                      message: (json && (json.message || json.error)) || "Please try again later.",
+                    });
                   }
                 } catch (err) {
-                  setResult({ type: 'error', message: 'Please try again later.' });
+                  setResult({ type: "error", message: "Please try again later." });
                 }
               }}
             >
               <input type="hidden" name="_subject" value="New message from Kier Studio website" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
-              <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+              <input
+                type="text"
+                name="_honey"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <div>
                 <label
                   htmlFor="name"
@@ -209,8 +249,8 @@ export function CTA() {
                     const msg = t.validity.valueMissing
                       ? "Please enter your email address."
                       : t.validity.typeMismatch
-                      ? "Please enter a valid email address."
-                      : "";
+                        ? "Please enter a valid email address."
+                        : "";
                     t.setCustomValidity(msg);
                   }}
                   onInput={(e) => (e.currentTarget as HTMLInputElement).setCustomValidity("")}
@@ -235,12 +275,16 @@ export function CTA() {
                   defaultValue=""
                   onInvalid={(e) => {
                     const t = e.target as HTMLSelectElement;
-                    t.setCustomValidity(t.validity.valueMissing ? "Please select a project type." : "");
+                    t.setCustomValidity(
+                      t.validity.valueMissing ? "Please select a project type." : "",
+                    );
                   }}
                   onInput={(e) => (e.currentTarget as HTMLSelectElement).setCustomValidity("")}
                   style={{ fontWeight: 400 }}
                 >
-                  <option value="" disabled>Select a project type…</option>
+                  <option value="" disabled>
+                    Select a project type…
+                  </option>
                   <option>SaaS</option>
                   <option>Website</option>
                   <option>E-commerce</option>
@@ -288,15 +332,23 @@ export function CTA() {
             {result && (
               <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20">
                 <div className="bg-white dark:bg-[#1a1a1a] rounded-xl p-8 max-w-md mx-auto text-center border border-[#28292D]/10 dark:border-white/10">
-                  {result.type === 'success' ? (
+                  {result.type === "success" ? (
                     <CheckCircle className="text-[#22c55e] w-12 h-12 mx-auto mb-4" />
                   ) : (
                     <XCircle className="text-[#ef4444] w-12 h-12 mx-auto mb-4" />
                   )}
-                  <h4 className="font-['Archivo',sans-serif] text-[20px] text-[#28292D] dark:text-white mb-2" style={{ fontWeight: 700 }}>
-                    {result.type === 'success' ? 'Message sent successfully' : 'Something went wrong'}
+                  <h4
+                    className="font-['Archivo',sans-serif] text-[20px] text-[#28292D] dark:text-white mb-2"
+                    style={{ fontWeight: 700 }}
+                  >
+                    {result.type === "success"
+                      ? "Message sent successfully"
+                      : "Something went wrong"}
                   </h4>
-                  <p className="font-['Archivo',sans-serif] text-[14px] text-[#28292D]/70 dark:text-white/70 mb-6" style={{ fontWeight: 400 }}>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[14px] text-[#28292D]/70 dark:text-white/70 mb-6"
+                    style={{ fontWeight: 400 }}
+                  >
                     {result.message}
                   </p>
                   <button

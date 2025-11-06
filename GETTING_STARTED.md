@@ -3,6 +3,7 @@
 A concise guide to set up, run, and collaborate on this project.
 
 ## Prerequisites
+
 - Node.js 18+ (recommended LTS)
 - npm 9+
 
@@ -20,6 +21,7 @@ npm install
 ```
 
 ## Environment Variables
+
 - Copy the example file and adjust values as needed.
 
 ```bash
@@ -31,6 +33,7 @@ cp .env.production.example .env.production
 ```
 
 Notes:
+
 - Vite only exposes variables prefixed with `VITE_`.
 - Provided keys:
   - `VITE_APP_ENV` (local | production)
@@ -84,6 +87,7 @@ npm run test:coverage
 ```
 
 ## Tech Summary
+
 - React 18 + TypeScript
 - Vite 6 (React SWC plugin)
 - Vitest + React Testing Library + jest-dom
@@ -93,11 +97,13 @@ npm run test:coverage
 - Animations: Motion React
 
 ## Project Conventions
+
 - Trunk-Based Development with small, frequent merges to `main`.
 - Two collaborators: you and Juan Manuel Biazisso.
 - Keep `agents.md` up-to-date with stack/tooling/decisions.
 
 Recommended workflow:
+
 1. Create a short-lived branch from `main`.
 2. Commit small, focused changes (clear messages).
 3. Open a PR to `main`.
@@ -105,14 +111,17 @@ Recommended workflow:
 5. Squash and merge when green.
 
 Branch naming ideas:
+
 - `feat/<scope>-<short-desc>`
 - `fix/<scope>-<short-desc>`
 - `chore/<scope>-<short-desc>`
 
 Commit message tips:
+
 - Keep messages concise and imperative (e.g., "Add CTA animation").
 
 ## GitHub Setup (Suggested)
+
 - Repository: push this project to your GitHub org or user.
 - Protections (recommended):
   - Protect `main` (require PRs, 1 review, passing checks).
@@ -121,6 +130,7 @@ Commit message tips:
   - Run `npm ci`, `npm run lint`, `npm test`, and `npm run build`.
 
 ## Troubleshooting
+
 - ESLint/TypeScript errors:
   - Ensure dependencies installed: `npm install`.
   - If lint fails on warnings, adjust or fix relevant rules/messages.
@@ -130,6 +140,7 @@ Commit message tips:
   - Change in `vite.config.ts` under `server.port` or free the port.
 
 ## Useful Commands
+
 ```bash
 # start dev server
 npm run dev

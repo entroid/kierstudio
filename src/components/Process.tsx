@@ -12,31 +12,38 @@ export function Process() {
     {
       number: "01",
       title: "DISCOVERY",
-      description: "We understand your goals, target users, and unique business challenges through deep research and strategic analysis.",
+      description:
+        "We understand your goals, target users, and unique business challenges through deep research and strategic analysis.",
       services: ["Research", "Strategy", "Planning"],
     },
     {
       number: "02",
       title: "DESIGN",
-      description: "We ideate and craft the experience through impactful visual solutions that communicate your message and emotionally connect with your audience.",
+      description:
+        "We ideate and craft the experience through impactful visual solutions that communicate your message and emotionally connect with your audience.",
       services: ["Information Architecture", "Wireframes", "Mockups", "Prototypes"],
     },
     {
       number: "03",
       title: "DEVELOP",
-      description: "We transform designs into functional digital experiences using the latest technologies and best practices.",
+      description:
+        "We transform designs into functional digital experiences using the latest technologies and best practices.",
       services: ["Frontend", "Backend", "Testing"],
     },
     {
       number: "04",
       title: "DELIVER",
-      description: "We launch your project to the world and provide ongoing support and refinement to ensure long-term success.",
+      description:
+        "We launch your project to the world and provide ongoing support and refinement to ensure long-term success.",
       services: ["Launch", "Support", "Optimization"],
     },
   ];
 
   return (
-    <section id="proceso" className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500">
+    <section
+      id="proceso"
+      className="py-32 bg-[#F5F5F5] dark:bg-[#0f0f0f] transition-colors duration-500"
+    >
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
@@ -45,7 +52,10 @@ export function Process() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <span className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-6 block italic" style={{ fontWeight: 400 }}>
+          <span
+            className="font-['Archivo',sans-serif] text-[11px] tracking-[0.3em] uppercase text-[#28292D]/50 dark:text-white/50 mb-6 block italic"
+            style={{ fontWeight: 400 }}
+          >
             (How We Work)
           </span>
 
@@ -61,7 +71,10 @@ export function Process() {
             PROCESS
           </motion.h2>
 
-          <p className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]" style={{ fontWeight: 600 }}>
+          <p
+            className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]"
+            style={{ fontWeight: 600 }}
+          >
             Our proven methodology ensures exceptional results every time.
           </p>
         </motion.div>

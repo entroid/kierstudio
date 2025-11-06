@@ -5,27 +5,33 @@ export function Problems() {
   const problems = [
     {
       title: "1. Tu producto no se entiende a primera vista",
-      description: "Los usuarios se pierden en pantallas complejas o no encuentran lo que buscan. Sabes que el producto tiene valor… pero el diseño no lo comunica.",
+      description:
+        "Los usuarios se pierden en pantallas complejas o no encuentran lo que buscan. Sabes que el producto tiene valor… pero el diseño no lo comunica.",
     },
     {
       title: "2. Tu tasa de conversión no despega",
-      description: "Tu web o landing recibe visitas, pero pocos clics, pocos registros. Sientes que podrías estar vendiendo mucho más si el mensaje y la experiencia fueran claros.",
+      description:
+        "Tu web o landing recibe visitas, pero pocos clics, pocos registros. Sientes que podrías estar vendiendo mucho más si el mensaje y la experiencia fueran claros.",
     },
     {
       title: "3. Tu producto creció, pero la interfaz no acompañó",
-      description: "Cada nueva feature hizo que la experiencia se vuelva más pesada. Hay desorden visual, flujos confusos y clientes que se frustran.",
+      description:
+        "Cada nueva feature hizo que la experiencia se vuelva más pesada. Hay desorden visual, flujos confusos y clientes que se frustran.",
     },
     {
       title: "4. Tu equipo pierde tiempo en tareas repetitivas",
-      description: "Soporte, reservas, seguimiento de leads… tareas que podrían automatizarse, pero aún dependen de personas. Resultado: desgaste y lentitud.",
+      description:
+        "Soporte, reservas, seguimiento de leads… tareas que podrían automatizarse, pero aún dependen de personas. Resultado: desgaste y lentitud.",
     },
     {
       title: "5. Tu identidad visual no refleja lo que haces hoy",
-      description: "El branding quedó viejo o ya no representa la madurez del producto. Tu comunicación se siente fragmentada y poco coherente.",
+      description:
+        "El branding quedó viejo o ya no representa la madurez del producto. Tu comunicación se siente fragmentada y poco coherente.",
     },
     {
       title: "6. Lanzás rápido, pero sin validar",
-      description: "Se publican ideas sin pruebas ni feedback real. Luego hay que rediseñar desde cero, perdiendo tiempo, usuarios y presupuesto.",
+      description:
+        "Se publican ideas sin pruebas ni feedback real. Luego hay que rediseñar desde cero, perdiendo tiempo, usuarios y presupuesto.",
     },
   ];
 
@@ -42,7 +48,8 @@ export function Problems() {
             ¿Suena Familiar?
           </h2>
           <p className="font-['Inter',sans-serif] text-[#000000] max-w-[678px] mx-auto">
-            Muchos equipos SaaS y startups enfrentan los mismos obstáculos. Si alguno de estos te suena conocido, podemos ayudarte a resolverlo.
+            Muchos equipos SaaS y startups enfrentan los mismos obstáculos. Si alguno de estos te
+            suena conocido, podemos ayudarte a resolverlo.
           </p>
         </motion.div>
 
@@ -65,9 +72,7 @@ export function Problems() {
               >
                 <X className="text-[#000000]" size={24} />
               </motion.div>
-              <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">
-                {problem.title}
-              </h3>
+              <h3 className="font-['Inter',sans-serif] mb-4 text-[#000000]">{problem.title}</h3>
               <p className="font-['Inter',sans-serif] text-[14px] text-[#000000] leading-relaxed">
                 {problem.description}
               </p>
