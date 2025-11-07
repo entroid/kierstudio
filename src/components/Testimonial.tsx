@@ -18,10 +18,10 @@ export function Testimonial() {
     {
       id: 1,
       quote:
-        "Trabajar con Kier Studio fue una experiencia transformadora. Su enfoque estratégico y atención al detalle elevaron nuestra marca a un nivel completamente nuevo. El resultado superó todas nuestras expectativas.",
-      author: "María González",
-      role: "CEO",
-      company: "Asgardia Real Estate",
+        "Excelente experiencia de trabajo con Kier Studio, supo captar mi idea y estilo que buscaba. Impecable. Recomendado 100 % !",
+      author: "Alejandro C.",
+      role: "PROPIETARIO",
+      company: "Barrivell Gafas",
     },
     {
       id: 2,
