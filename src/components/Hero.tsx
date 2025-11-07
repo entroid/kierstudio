@@ -22,7 +22,7 @@ export function Hero() {
           >
             <div className="absolute inset-0">
               <ImageWithFallback
-                src="/hero-bkg.jpg"
+                src="/hero-bkg2.mp4"
                 alt="Kier Studio Design Mockups"
                 className="w-full h-full object-cover opacity-80"
               />
