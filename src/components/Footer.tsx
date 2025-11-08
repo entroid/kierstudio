@@ -5,10 +5,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Instagram, label: "Instagram", href: "https://instagram.com" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/kierstudio_" },
+    /*{ icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
     { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
-    { icon: Mail, label: "Email", href: "mailto:hello@kierstudio.com" },
+    { icon: Mail, label: "Email", href: "mailto:hello@kierstudio.com" },*/
   ];
 
   const footerLinks = {
@@ -98,8 +98,8 @@ export function Footer() {
               </motion.a>
             </div>
 
-            {/* Social Links (temporarily hidden) */}
-            <div className="hidden flex gap-3">
+            {/* Social Links */}
+            <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}

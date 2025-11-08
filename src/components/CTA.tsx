@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { ArrowRight, Mail, Phone, CheckCircle, XCircle } from "lucide-react";
+import { ArrowRight, Mail, Phone, CheckCircle, XCircle, Instagram } from "lucide-react";
 
 export function CTA() {
   const [result, setResult] = useState<{ type: "success" | "error"; message: string } | null>(null);
@@ -115,6 +115,32 @@ export function CTA() {
                     style={{ fontWeight: 600 }}
                   >
                     +54 9 341 7211814
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://www.instagram.com/kierstudio_"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-4 group cursor-pointer"
+              >
+                <div className="w-12 h-12 bg-[#D52169] group-hover:bg-[#28292D] rounded-full flex items-center justify-center transition-colors">
+                  <Instagram className="text-white" size={20} />
+                </div>
+                <div>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[11px] tracking-[0.2em] uppercase text-[#28292D]/50 dark:text-white/50"
+                    style={{ fontWeight: 600 }}
+                  >
+                    Instagram
+                  </p>
+                  <p
+                    className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white"
+                    style={{ fontWeight: 600 }}
+                  >
+                    @kierstudio_
                   </p>
                 </div>
               </motion.a>
