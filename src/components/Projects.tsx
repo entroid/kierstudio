@@ -18,6 +18,7 @@ interface Project {
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
 
   const projects: Project[] = [
     {
@@ -37,6 +38,41 @@ export function Projects() {
       url: "https://beerhoteles.com/",
     },
     {
+      id: 3,
+      title: "MRAI FLEET",
+      category: "SaaS Platform, Mobile App",
+      year: "2023",
+      description:
+       "The MRAI Fleet SaaS platform and mobile app needed a new design to enhance user experience and streamline operations. The new design features a modern, professional aesthetic with a focus on usability and efficiency. We also implemented a custom catalog section powered by Strapi CMS, allowing the MRAI Fleet team to easily manage and publish content to boost visibility and SEO.",
+      services: ["SaaS Platform", "Mobile App", "UX/UI", "Product Design"],
+      image:
+        "/projects/mrai/mrai-mock.jpg",
+        images: [
+          "/projects/mrai/04project.jpg",
+          "/projects/mrai/02-project.jpg",
+          "/projects/mrai/03project.jpg",
+          "/projects/mrai/01project.jpg",
+        ],
+      url: "https://example.com",
+    },
+    {
+      id: 4,
+      title: "Barrivell",
+      category: "Ecommerce, Website",
+      year: "2024",
+      description:
+        "We redesigned the Barrivell ecommerce website to enhance user experience and streamline operations. The new design features a modern, professional aesthetic with a focus on usability and efficiency. We also implemented a custom catalog section powered by Strapi CMS, allowing the Barrivell team to easily manage and publish content to boost visibility and SEO.",
+      services: ["Ecommerce Setup & Launch", "Website Design", "Strategy"],
+      image:
+        "/projects/barriv/barri-mock.jpg",
+        images: [
+          "/projects/barriv/01.png",
+          "/projects/barriv/02.jpg",
+          "/projects/barriv/03.jpg",
+        ],
+      url: "https://barrivell.com.ar/",
+    },
+      {
       id: 2,
       title: "TEAMIE.",
       category: "Team Communication - Website",
@@ -53,39 +89,14 @@ export function Projects() {
       ],
       url: "https://teamie-show.webflow.io/",
     },
-    {
-      id: 3,
-      title: "KANBA",
-      category: "SaaS Platform",
-      year: "2023",
-      description:
-        "Plataforma SaaS completa para gestión de proyectos. Diseño centrado en el usuario que simplifica flujos de trabajo complejos manteniendo una estética moderna y profesional.",
-      services: ["UX Research", "UI Design", "Prototyping", "Development"],
-      image:
-        "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYwOTg0NzQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      images: [
-        "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYwOTg0NzQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzYxMDc4MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      ],
-      url: "https://example.com",
-    },
-    {
-      id: 4,
-      title: "UTOSIA",
-      category: "Tech Startup",
-      year: "2023",
-      description:
-        "Identidad visual completa para una startup tecnológica innovadora. Desde el concepto hasta la ejecución, creamos una marca que destaca en el competitivo mercado tech.",
-      services: ["Brand Identity", "Website Design", "Marketing Assets"],
-      image:
-        "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2MDk4NjE2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      images: [
-        "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2MDk4NjE2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-        "https://images.unsplash.com/photo-1616205255812-c07c8102cc02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwbW9ja3VwfGVufDF8fHx8MTc2MDk4MjQ3NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      ],
-      url: "https://example.com",
-    },
   ];
+
+  // Helper function to check if image is a mock
+  const isMockImage = (imagePath: string) => {
+    return imagePath.toLowerCase().includes('-mock');
+  };
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -142,29 +153,36 @@ export function Projects() {
             className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]"
             style={{ fontWeight: 600 }}
           >
-            Explore our portfolio of transformative digital experiences.
+            Explore our portfolio of selected transformative digital experiences.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              onClick={() => openModal(project)}
-              className="group cursor-pointer relative overflow-hidden"
-            >
+        <motion.div layout className="grid md:grid-cols-2 gap-8">
+          <AnimatePresence initial={false}>
+            {visibleProjects.map((project, index) => (
+              <motion.div
+                key={`${project.id}-${index}`}
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => openModal(project)}
+                className="group cursor-pointer relative overflow-hidden"
+              >
               <div className="relative aspect-[4/3] overflow-hidden bg-[#1a1a1a] min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                {/* Gradient overlay for mock images - always visible for better text readability */}
+                {isMockImage(project.image) ? (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                ) : (
+                  <div className="absolute inset-0 bg-black/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                )}
 
                 {/* Project Info Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -204,25 +222,30 @@ export function Projects() {
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-12 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer"
-            style={{ fontWeight: 700 }}
+        {projects.length > 4 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
           >
-            View All Projects →
-          </motion.button>
-        </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-12 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer"
+              style={{ fontWeight: 700 }}
+              onClick={() => setShowAll((prev) => !prev)}
+              aria-expanded={showAll}
+            >
+              {showAll ? 'Close Projects' : 'View All Projects →'}
+            </motion.button>
+          </motion.div>
+        )}
       </div>
 
       {/* Modal Gallery */}

@@ -82,16 +82,18 @@ export function FloatingControls() {
           transition={{ delay: 1.2, duration: 0.3 }}
           className="relative"
         >
-          <motion.button
-            onClick={() => setAccessibilityOpen(!accessibilityOpen)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
-            aria-label="Abrir menú de accesibilidad"
-            aria-expanded={accessibilityOpen}
-          >
-            <Accessibility className="text-white" size={24} />
-          </motion.button>
+          {false && (
+            <motion.button
+              onClick={() => setAccessibilityOpen(!accessibilityOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
+              aria-label="Abrir menú de accesibilidad"
+              aria-expanded={accessibilityOpen}
+            >
+              <Accessibility className="text-white" size={24} />
+            </motion.button>
+          )}
 
           {/* Accessibility Panel */}
           <AnimatePresence>
