@@ -214,21 +214,23 @@ export function Services() {
                   </div>
 
                   {/* CTA */}
-                  <motion.button
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase px-8 py-4 border-2 transition-colors duration-300 ${
-                      service.bgColor.includes("28292D") || service.bgColor.includes("black")
-                        ? "border-white text-white hover:bg-white hover:text-[#28292D]"
-                        : "border-[#28292D] dark:border-white text-[#28292D] dark:text-white hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D]"
-                    }`}
-                    style={{ fontWeight: 700 }}
-                  >
-                    Learn More →
-                  </motion.button>
+                  {false && (
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase px-8 py-4 border-2 transition-colors duration-300 ${
+                        service.bgColor.includes("28292D") || service.bgColor.includes("black")
+                          ? "border-white text-white hover:bg-white hover:text-[#28292D]"
+                          : "border-[#28292D] dark:border-white text-[#28292D] dark:text-white hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D]"
+                      }`}
+                      style={{ fontWeight: 700 }}
+                    >
+                      Learn More →
+                    </motion.button>
+                  )}
                 </motion.div>
               </div>
             </motion.div>

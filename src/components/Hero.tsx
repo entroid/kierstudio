@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useTheme } from "./ThemeContext";
-import { Button } from "./ui/button";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
   const { accessibility } = useTheme();
@@ -22,8 +21,8 @@ export function Hero() {
           >
             <div className="absolute inset-0">
               <ImageWithFallback
-                src="/hero-bkg2.mp4"
-                alt="Kier Studio Design Mockups"
+                src="/hero-bkg.jpg"
+                alt="Kier Studio Design"
                 className="w-full h-full object-cover opacity-80"
               />
             </div>
@@ -77,16 +76,15 @@ export function Hero() {
                   className="font-['Archivo',sans-serif] text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] text-[#28292D] dark:text-white/90 mb-6"
                   style={{ fontWeight: 600 }}
                 >
-                  We craft impactful SaaS and Websites that drive growth and success.
+                  We craft impactful SaaS and Websites for growth and success.
                 </h2>
                 <p
                   className="font-['Archivo',sans-serif] text-[16px] md:text-[18px] text-[#28292D]/70 dark:text-white/60 leading-[1.7] max-w-[550px]"
                   style={{ fontWeight: 400 }}
                 >
-                  Comprehensive vision guiding your digital product.
+                  A comprehensive vision guiding your digital product.
                   <br />
-                  Aligning your company’s goals, technology needs, and growth direction through{" "}
-                  <b>strategic design and development</b>.
+                  We align your company’s goals, technology needs, and growth direction through <b>strategic design and development</b>.
                 </p>
               </motion.div>
 

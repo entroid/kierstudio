@@ -18,6 +18,7 @@ interface Project {
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
 
   const projects: Project[] = [
     {
@@ -37,30 +38,13 @@ export function Projects() {
       url: "https://beerhoteles.com/",
     },
     {
-      id: 2,
-      title: "TEAMIE.",
-      category: "Team Communication - Website",
-      year: "2024",
-      description:
-        "We designed and developed the Teamie. landing page to support the launch of this new team collaboration startup. The goal was to present the product clearly and build credibility from day one. The site features a modern, startup-oriented design, with a strong focus on clarity, trust, and conversion. Additionally, we implemented a custom blog section powered by Strapi CMS, allowing the Teamie. team to easily manage and publish content to boost visibility and SEO.",
-      services: ["Visual Identity", "Website", "Blog CMS"],
-      image:
-        "/projects/teamie/01-mock.jpg",
-      images: [
-        "/projects/teamie/01.png",
-        "/projects/teamie/02.png",
-        "/projects/teamie/05.png",
-      ],
-      url: "https://teamie-show.webflow.io/",
-    },
-    {
       id: 3,
       title: "MRAI FLEET",
       category: "SaaS Platform, Mobile App",
       year: "2023",
       description:
-       "We redesigned the MRAI Fleet SaaS platform and mobile app to enhance user experience and streamline operations. The new design features a modern, professional aesthetic with a focus on usability and efficiency. We also implemented a custom catalog section powered by Strapi CMS, allowing the MRAI Fleet team to easily manage and publish content to boost visibility and SEO.",
-      services: ["Website Design", "UX/UI", "Strategy"],
+       "The MRAI Fleet SaaS platform and mobile app needed a new design to enhance user experience and streamline operations. The new design features a modern, professional aesthetic with a focus on usability and efficiency. We also implemented a custom catalog section powered by Strapi CMS, allowing the MRAI Fleet team to easily manage and publish content to boost visibility and SEO.",
+      services: ["SaaS Platform", "Mobile App", "UX/UI", "Product Design"],
       image:
         "/projects/mrai/mrai-mock.jpg",
         images: [
@@ -88,12 +72,31 @@ export function Projects() {
         ],
       url: "https://barrivell.com.ar/",
     },
+      {
+      id: 2,
+      title: "TEAMIE.",
+      category: "Team Communication - Website",
+      year: "2024",
+      description:
+        "We designed and developed the Teamie. landing page to support the launch of this new team collaboration startup. The goal was to present the product clearly and build credibility from day one. The site features a modern, startup-oriented design, with a strong focus on clarity, trust, and conversion. Additionally, we implemented a custom blog section powered by Strapi CMS, allowing the Teamie. team to easily manage and publish content to boost visibility and SEO.",
+      services: ["Visual Identity", "Website", "Blog CMS"],
+      image:
+        "/projects/teamie/01-mock.jpg",
+      images: [
+        "/projects/teamie/01.png",
+        "/projects/teamie/02.png",
+        "/projects/teamie/05.png",
+      ],
+      url: "https://teamie-show.webflow.io/",
+    },
   ];
 
   // Helper function to check if image is a mock
   const isMockImage = (imagePath: string) => {
     return imagePath.toLowerCase().includes('-mock');
   };
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -150,22 +153,24 @@ export function Projects() {
             className="font-['Archivo',sans-serif] text-[18px] md:text-[28px] text-[#28292D] dark:text-white/90 max-w-[900px] leading-[1.4]"
             style={{ fontWeight: 600 }}
           >
-            Explore our portfolio of transformative digital experiences.
+            Explore our portfolio of selected transformative digital experiences.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              onClick={() => openModal(project)}
-              className="group cursor-pointer relative overflow-hidden"
-            >
+        <motion.div layout className="grid md:grid-cols-2 gap-8">
+          <AnimatePresence initial={false}>
+            {visibleProjects.map((project, index) => (
+              <motion.div
+                key={`${project.id}-${index}`}
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => openModal(project)}
+                className="group cursor-pointer relative overflow-hidden"
+              >
               <div className="relative aspect-[4/3] overflow-hidden bg-[#1a1a1a] min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
                 <ImageWithFallback
                   src={project.image}
@@ -217,25 +222,30 @@ export function Projects() {
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-12 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer"
-            style={{ fontWeight: 700 }}
+        {projects.length > 4 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
           >
-            View All Projects →
-          </motion.button>
-        </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-transparent text-[#28292D] dark:text-white border-2 border-[#28292D] dark:border-white px-12 py-5 hover:bg-[#28292D] dark:hover:bg-white hover:text-white dark:hover:text-[#28292D] font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer"
+              style={{ fontWeight: 700 }}
+              onClick={() => setShowAll((prev) => !prev)}
+              aria-expanded={showAll}
+            >
+              {showAll ? 'Close Projects' : 'View All Projects →'}
+            </motion.button>
+          </motion.div>
+        )}
       </div>
 
       {/* Modal Gallery */}

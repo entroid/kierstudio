@@ -18,12 +18,12 @@ export function Testimonial() {
     {
       id: 1,
       quote:
-        "Excelente experiencia de trabajo con Kier Studio, supo captar mi idea y estilo que buscaba. Impecable. Recomendado 100 % !",
+        "Excellent experience working with Kier Studio. They perfectly captured my vision and the style I was looking for. Impeccable. 100% recommended!",
       author: "Alejandro C.",
-      role: "PROPIETARIO",
+      role: "OWNER",
       company: "Barrivell Gafas",
     },
-    {
+    /*{
       id: 2,
       quote:
         "El equipo de Kier Studio no solo creó un sitio web hermoso, sino que también entendió profundamente nuestro negocio y audiencia. Su experiencia en UX/UI se refleja en cada pixel del diseño final.",
@@ -38,7 +38,7 @@ export function Testimonial() {
       author: "Ana Rodríguez",
       role: "Marketing Director",
       company: "Goldline",
-    },
+    },*/
   ];
 
   const nextTestimonial = () => {
@@ -148,29 +148,33 @@ export function Testimonial() {
 
           {/* Navigation */}
           <div className="flex items-center gap-4 mt-16">
-            <motion.button
-              whileHover={{ scale: 1.1, x: -5 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={prevTestimonial}
-              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              <span className="text-white text-[24px] group-hover:-translate-x-1 transition-transform">
-                ←
-              </span>
-            </motion.button>
+            {testimonials.length > 1 && (
+              <>
+                <motion.button
+                  whileHover={{ scale: 1.1, x: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={prevTestimonial}
+                  className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
+                  aria-label="Previous testimonial"
+                >
+                  <span className="text-white text-[24px] group-hover:-translate-x-1 transition-transform">
+                    ←
+                  </span>
+                </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.1, x: 5 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={nextTestimonial}
-              className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
-              aria-label="Next testimonial"
-            >
-              <span className="text-white text-[24px] group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1, x: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={nextTestimonial}
+                  className="w-14 h-14 border-2 border-white/20 hover:border-[#D52169] hover:bg-[#D52169] rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
+                  aria-label="Next testimonial"
+                >
+                  <span className="text-white text-[24px] group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </motion.button>
+              </>
+            )}
 
             {/* Dots */}
             <div className="flex gap-3 ml-4">
