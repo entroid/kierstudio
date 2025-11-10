@@ -27,8 +27,6 @@ export function Hero() {
                 muted
                 loop
                 playsInline
-                aria-label="Kier Studio hero video showcasing digital design work"
-                title="Kier Studio - Digital Design and Development"
               />
             </div>
           </motion.div>

@@ -1,6 +1,0 @@
-# https://www.robotstxt.org/
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://kierstudio.com/sitemap.xml
