@@ -20,7 +20,7 @@ export function Services() {
       subtitle: "End-to-end digital products: Strategy, user centered design and development.",
       image:
         "/services/product-design3.jpg",
-      services: ["Strategy", "UX/UI", "Development"],
+      services: ["Strategy", "UX/UI", "Development", "Conversions"],
       tag: "Strategy + UX/UI + Development",
       bgColor: "bg-[#F5F5F5] dark:bg-[#1a1a1a]",
     },
@@ -51,7 +51,8 @@ export function Services() {
       services: [
         "Headless CMS",
         "Content Modeling",
-        "Integrations & APIs",
+        "SaaS, B2B",
+        "Custom Software",
       ],
       tag: "Development",
       bgColor: "bg-[#28292D] dark:bg-black",
