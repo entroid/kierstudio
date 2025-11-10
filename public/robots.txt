@@ -1,4 +1,5 @@
 # https://www.robotstxt.org/
+# robots.txt for Kier Studio
 User-agent: *
 Allow: /
 
