@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { useTheme } from "./ThemeContext";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
   const { accessibility } = useTheme();
@@ -20,10 +19,14 @@ export function Hero() {
             className="relative bg-[#1a1a1a] dark:bg-black overflow-hidden min-h-[200px] sm:min-h-[240px] md:min-h-[280px]"
           >
             <div className="absolute inset-0">
-              <ImageWithFallback
-                src="/hero-bkg.jpg"
-                alt="Kier Studio Design"
-                className="w-full h-full object-cover opacity-80"
+              <video
+                className="w-full h-full object-cover object-right opacity-80"
+                poster="/hero-img.jpg"
+                src="/kierstudio-hero.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
             </div>
           </motion.div>

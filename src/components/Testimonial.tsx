@@ -201,7 +201,7 @@ export function Testimonial() {
         >
           {[
             { number: "50+", label: "Projects Completed" },
-            { number: "+32%", label: "Convertion Rates" },
+            { number: "+32%", label: "Conversion Rates" },
             { number: "10+", label: "Years Experience" },
             { number: "100%", label: "Client Satisfaction" },
           ].map((stat, index) => (
