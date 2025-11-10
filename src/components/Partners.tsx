@@ -151,13 +151,13 @@ export function Partners() {
                     <div className="mb-2 flex items-center justify-center">
                       <img
                         src={partner.src}
-                        alt="Partner logo"
+                        alt={`${partner.tagline} partner logo - Kier Studio`}
                         className="block dark:hidden h-12 md:h-14 w-auto opacity-90"
                         loading="lazy"
                       />
                       <img
                         src={partner.srcDark}
-                        alt="Partner logo"
+                        alt={`${partner.tagline} partner logo - Kier Studio`}
                         className="hidden dark:block h-12 md:h-14 w-auto opacity-100"
                         loading="lazy"
                       />

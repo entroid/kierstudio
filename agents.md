@@ -255,8 +255,11 @@ Last updated: TailwindCSS pipeline enabled
 
 ## CI/CD & Deployment
 
-- Deployment: TBD (leave open for now)
-- CI: TBD (add later based on target platform)
+- Hosting: Vercel
+- Workflow: Deploys via GitHub integration (auto-deploy on pushes)
+- Branches: Preview deployments for PRs; production from `main`
+- Build: `npm run build` → outputs to `build/`
+- Env: Use `VITE_`-prefixed vars in Vercel Project Settings
 
 ## AI / Agent Context
 

@@ -174,7 +174,7 @@ export function Projects() {
               <div className="relative aspect-[4/3] overflow-hidden bg-[#1a1a1a] min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
                 <ImageWithFallback
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category} project by Kier Studio`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Gradient overlay for mock images - always visible for better text readability */}
