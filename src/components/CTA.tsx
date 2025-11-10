@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { ArrowRight, Mail, Phone, CheckCircle, XCircle, Instagram } from "lucide-react";
+import { ArrowRight, Mail, Phone, CheckCircle, XCircle, Instagram, Loader2 } from "lucide-react";
 
 export function CTA() {
   const [result, setResult] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   return (
     <section
       id="contacto"
@@ -70,7 +71,7 @@ export function CTA() {
             {/* Contact Methods */}
             <div className="space-y-6 mb-12">
               <motion.a
-                href="mailto:hello@kierstudio.com"
+                href="mailto:kierstudio.info@gmail.com"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-4 group cursor-pointer"
               >
@@ -88,7 +89,7 @@ export function CTA() {
                     className="font-['Archivo',sans-serif] text-[18px] text-[#28292D] dark:text-white"
                     style={{ fontWeight: 600 }}
                   >
-                    info@kierstudio.com
+                    kierstudio.info@gmail.com
                   </p>
                 </div>
               </motion.a>
@@ -198,8 +199,9 @@ export function CTA() {
                   return;
                 }
                 try {
+                  setSubmitting(true);
                   const data = new FormData(form);
-                  const res = await fetch("https://formsubmit.co/ajax/info@kierstudio.com", {
+                  const res = await fetch("https://formsubmit.co/ajax/kierstudio.info@gmail.com", {
                     method: "POST",
                     headers: { Accept: "application/json" },
                     body: data,
@@ -346,13 +348,19 @@ export function CTA() {
 
               <motion.button
                 type="submit"
+                disabled={submitting}
+                aria-busy={submitting}
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group cursor-pointer"
+                className="w-full bg-[#D52169] text-white px-10 py-5 font-['Archivo',sans-serif] text-[13px] tracking-[0.1em] uppercase transition-all duration-300 hover:bg-[#28292D] flex items-center justify-center gap-3 group cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ fontWeight: 700 }}
               >
                 Send Message
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+                {submitting ? (
+                  <Loader2 className="animate-spin" size={18} />
+                ) : (
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+                )}
               </motion.button>
             </form>
             {result && (
@@ -378,7 +386,10 @@ export function CTA() {
                     {result.message}
                   </p>
                   <button
-                    onClick={() => setResult(null)}
+                    onClick={() => {
+                      setResult(null);
+                      setSubmitting(false);
+                    }}
                     className="bg-[#D52169] text-white px-6 py-3 font-['Archivo',sans-serif] text-[12px] tracking-[0.1em] uppercase rounded-md hover:bg-[#28292D] transition-colors"
                     style={{ fontWeight: 700 }}
                     type="button"
