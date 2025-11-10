@@ -49,6 +49,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^141.0.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
@@ -66,7 +67,7 @@
     "jsdom": "^24.0.0",
     "postcss": "^8.5.6",
     "prettier": "^3.3.3",
-    "puppeteer": "^24.29.1",
+    "puppeteer-core": "^24.29.1",
     "tailwindcss": "^4.1.16",
     "tsx": "^4.20.6",
     "vite": "6.3.5",

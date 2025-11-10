@@ -66,9 +66,17 @@ Y que esté configurado en Google Search Console:
 
 ### El pre-rendering no se ejecuta en Vercel
 
-1. Verifica que `puppeteer` esté en `devDependencies` (ya está)
+1. Verifica que `puppeteer-core` y `@sparticuz/chromium` estén en `devDependencies` (ya están)
 2. Verifica que `tsx` esté en `devDependencies` (ya está)
 3. Revisa los logs de build en Vercel para ver errores
+
+### Error: "Failed to launch the browser process" en Vercel
+
+Este error se soluciona usando `@sparticuz/chromium` (ya configurado). Si persiste:
+
+1. Verifica que `@sparticuz/chromium` esté en las dependencias
+2. El script detecta automáticamente el entorno de Vercel y usa Chromium optimizado
+3. Si el error persiste, puede ser un problema de límites de memoria/tiempo en Vercel
 
 ### Las rutas no funcionan
 
