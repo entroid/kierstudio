@@ -77,7 +77,7 @@ export function Footer() {
                   className="font-['Archivo',sans-serif] text-[14px]"
                   style={{ fontWeight: 400 }}
                 >
-                  info@kierstudio.com
+                  kierstudio.info@gmail.com.com
                 </span>
               </motion.div>
 
