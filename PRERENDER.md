@@ -98,6 +98,22 @@ Asegúrate de que el puerto 4173 esté disponible. Puedes cambiarlo en `scripts/
 - Asegúrate de que las rutas con hash estén funcionando correctamente
 - Revisa los logs del script para ver advertencias
 
+### Error en desarrollo local: "Cannot find Chrome"
+
+El script usa `puppeteer-core` que requiere Chrome/Chromium instalado. Soluciones:
+
+1. **Instalar Chrome/Chromium** en tu sistema
+2. **Configurar la ruta** con la variable de entorno `PUPPETEER_EXECUTABLE_PATH`
+3. **Instalar puppeteer completo** (alternativa): `npm install --save-dev puppeteer` (esto descarga Chrome automáticamente, pero es más pesado)
+
+### Error en Vercel: "Failed to launch the browser process"
+
+Este error ya está solucionado usando `@sparticuz/chromium` (optimizado para serverless). Si persiste:
+
+1. Verifica que `@sparticuz/chromium` esté en `devDependencies`
+2. El script detecta automáticamente el entorno de Vercel
+3. Puede ser un problema de límites de memoria/tiempo en Vercel (aumenta los límites si es necesario)
+
 ## Actualizar rutas
 
 Para agregar una nueva ruta al pre-rendering:
