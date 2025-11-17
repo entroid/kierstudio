@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useAnimation } from "motion/react";
 import {
   Moon,
   Sun,
@@ -11,8 +11,9 @@ import {
   Volume2,
   VolumeX,
   ArrowUp,
+  MessageSquare,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
 
 export function FloatingControls() {
@@ -54,10 +55,58 @@ export function FloatingControls() {
     updateAccessibility({ screenReader: !accessibility.screenReader });
   };
 
+  // Animation controls for the chat button
+  const chatControls = useAnimation();
+
+  useEffect(() => {
+    const pulseAnimation = async () => {
+      while (true) {
+        await chatControls.start({
+          scale: [1, 1.2, 1],
+          boxShadow: [
+            '0 25px 50px -12px rgba(213, 33, 105, 0.1)',
+            '0 25px 50px -12px rgba(213, 33, 105, 0.3)',
+            '0 25px 50px -12px rgba(213, 33, 105, 0.1)'
+          ],
+          transition: {
+            duration: 0.5,
+            ease: 'easeInOut',
+          },
+        });
+        // Wait 5 seconds before next pulse
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      }
+    };
+
+    pulseAnimation();
+  }, [chatControls]);
+
   return (
     <>
       {/* Fixed container for stacked floating buttons */}
-      <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-5">
+      <div id="floating-controls" className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-5">
+        {/* Chat Button */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.3 }}
+        >
+          <motion.button
+            id="bp-toggle-chat"
+            initial={{ scale: 1 }}
+            animate={chatControls}
+            whileHover={{ 
+              scale: 1.1,
+              boxShadow: '0 25px 50px -12px rgba(213, 33, 105, 0.4)'
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="w-16 h-16 bg-[#D52169] hover:bg-[#28292D] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
+            aria-label="Toggle chat"
+          >
+            <MessageSquare className="text-white" size={24} />
+          </motion.button>
+        </motion.div>
+
         {/* Scroll to top */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -75,25 +124,25 @@ export function FloatingControls() {
           </motion.button>
         </motion.div>
 
-        {/* Accessibility Menu */}
+        {/* Accessibility Menu - Hidden */}
+        {false && (
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.3 }}
           className="relative"
-        >
-          {false && (
-            <motion.button
-              onClick={() => setAccessibilityOpen(!accessibilityOpen)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
-              aria-label="Abrir menú de accesibilidad"
-              aria-expanded={accessibilityOpen}
-            >
-              <Accessibility className="text-white" size={24} />
-            </motion.button>
-          )}
+        >          
+          <motion.button
+            onClick={() => setAccessibilityOpen(!accessibilityOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-16 h-16 bg-[#28292D] hover:bg-[#D52169] rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 cursor-pointer"
+            aria-label="Abrir menú de accesibilidad"
+            aria-expanded={accessibilityOpen}
+          >
+            <Accessibility className="text-white" size={24} />
+          </motion.button>
+          
 
           {/* Accessibility Panel */}
           <AnimatePresence>
@@ -253,6 +302,7 @@ export function FloatingControls() {
             )}
           </AnimatePresence>
         </motion.div>
+        )}
 
         {/* Dark Mode Toggle */}
         <motion.div
