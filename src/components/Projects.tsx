@@ -53,7 +53,7 @@ export function Projects() {
           "/projects/mrai/03project.jpg",
           "/projects/mrai/01project.jpg",
         ],
-      url: "https://example.com",
+      url: "https://miraifleet.com",
     },
     {
       id: 4,
